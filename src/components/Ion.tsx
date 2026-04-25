@@ -24,7 +24,7 @@ interface IonProps {
 export const Ion = ({ name, className, style, ...rest }: IonProps) => (
   <ion-icon
     name={name}
-    class={className}
+    className={className}
     style={style}
     aria-hidden={rest["aria-hidden"] ?? true}
   />
