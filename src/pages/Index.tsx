@@ -10,6 +10,9 @@ import housingImg from "@/assets/housing.jpg";
 import welfareImg from "@/assets/welfare.jpg";
 import founderPortrait from "@/assets/founder-portrait.jpg";
 import leadershipImg from "@/assets/leadership.jpg";
+import womenIct from "@/assets/women-ict.jpg";
+import womenSkills from "@/assets/women-skills.jpg";
+import womenTailoring from "@/assets/women-tailoring.jpg";
 
 const focusAreas = [
   {
@@ -271,12 +274,15 @@ const Index = () => (
       />
       <div className="mt-12 grid grid-cols-12 gap-4 md:gap-6">
         {[
-          { src: girlEducation, alt: "Schoolgirls reading", label: "Education", span: "col-span-12 md:col-span-7 aspect-[16/10]" },
-          { src: womenEnterprise, alt: "Woman entrepreneur", label: "Enterprise", span: "col-span-12 md:col-span-5 aspect-[4/5]" },
-          { src: housingImg, alt: "Woman with house keys", label: "Housing", span: "col-span-6 md:col-span-4 aspect-square" },
-          { src: mentorshipImg, alt: "Mentorship circle", label: "Mentorship", span: "col-span-6 md:col-span-4 aspect-square" },
-          { src: welfareImg, alt: "Welfare outreach", label: "Welfare", span: "col-span-12 md:col-span-4 aspect-square" },
-          { src: leadershipImg, alt: "Woman speaking", label: "Leadership", span: "col-span-12 aspect-[21/9]" },
+          { src: girlEducation, alt: "Bints Foundation distributing school materials to girls", label: "Education", span: "col-span-12 md:col-span-7 aspect-[16/10]" },
+          { src: womenEnterprise, alt: "Women's Economic Empowerment workshop", label: "Enterprise", span: "col-span-12 md:col-span-5 aspect-[4/5]" },
+          { src: womenTailoring, alt: "Women in tailoring training", label: "Skills", span: "col-span-6 md:col-span-4 aspect-square" },
+          { src: womenIct, alt: "Young women learning ICT skills", label: "ICT", span: "col-span-6 md:col-span-4 aspect-square" },
+          { src: welfareImg, alt: "Welfare outreach in the community", label: "Welfare", span: "col-span-12 md:col-span-4 aspect-square" },
+          { src: leadershipImg, alt: "Mentor speaking to a circle of young women", label: "Leadership", span: "col-span-12 aspect-[21/9]" },
+          { src: mentorshipImg, alt: "Diverse women volunteers", label: "Volunteers", span: "col-span-6 md:col-span-5 aspect-[4/3]" },
+          { src: housingImg, alt: "Women reviewing a housing brochure", label: "Housing", span: "col-span-6 md:col-span-4 aspect-[4/3]" },
+          { src: womenSkills, alt: "Women learning bead-craft skills", label: "Community", span: "col-span-12 md:col-span-3 aspect-[4/3]" },
         ].map((img) => (
           <figure key={img.label} className={`${img.span} relative overflow-hidden group`}>
             <img src={img.src} alt={img.alt} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
