@@ -63,7 +63,10 @@ const Contact = () => {
                   <Ion name="call-outline" className="text-accent text-xl shrink-0 mt-0.5" />
                   <div>
                     <div className="text-primary-foreground/60 text-[11px] uppercase tracking-widest">Phone</div>
-                    <div className="mt-1">+234 903 000 0000</div>
+                    <div className="mt-1 space-y-0.5">
+                      <a href="tel:+2349133035624" className="block hover:text-accent transition-colors">0913 303 5624</a>
+                      <a href="tel:+2348149990072" className="block hover:text-accent transition-colors">0814 999 0072</a>
+                    </div>
                   </div>
                 </li>
                 <li className="flex gap-3">
