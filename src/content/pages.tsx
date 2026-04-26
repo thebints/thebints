@@ -319,7 +319,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Programme",
     title: "Bints Skills for Dignity Programme",
     intro: "Vocational and digital skills with real market value — restoring agency through ability.",
-    image: womenEnterprise,
+    image: womenTailoring,
     body: (
       <>
         <p>Skills for Dignity prepares women for sustainable livelihoods through training rooted in market demand, professional standards and personal pride.</p>
