@@ -34,17 +34,27 @@ export const PageHero = ({
   intro,
   image,
   imageAlt,
+  icon,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
   image?: string;
   imageAlt?: string;
+  icon?: string;
 }) => (
   <section className="relative overflow-hidden border-b border-border">
     <div className="absolute inset-0 bg-secondary/40 paper-grain" aria-hidden />
     <div className="container relative grid md:grid-cols-12 gap-10 items-end py-20 md:py-28">
       <div className="md:col-span-7 animate-fade-rise">
+        {icon && (
+          <div className="mb-6 inline-flex items-center gap-3">
+            <div className="h-12 w-12 bg-primary text-accent flex items-center justify-center ring-1 ring-accent/40">
+              <Ion name={icon} className="text-xl" />
+            </div>
+            <span className="h-px w-10 bg-accent" />
+          </div>
+        )}
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="display-serif-feel text-primary text-5xl md:text-6xl lg:text-7xl mt-5">
           {title}
