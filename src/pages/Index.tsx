@@ -278,19 +278,19 @@ const Index = () => (
         eyebrow="In the Field"
         title={<>Where dignity meets<br />real life.</>}
       />
-      <div className="mt-12 grid grid-cols-12 gap-4 md:gap-6">
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
         {[
-          { src: girlEducation, alt: "Bints Foundation distributing school materials to girls", label: "Education", span: "col-span-12 md:col-span-7 aspect-[16/10]" },
-          { src: womenEnterprise, alt: "Women's Economic Empowerment workshop", label: "Enterprise", span: "col-span-12 md:col-span-5 aspect-[4/5]" },
-          { src: womenTailoring, alt: "Women in tailoring training", label: "Skills", span: "col-span-6 md:col-span-4 aspect-square" },
-          { src: womenIct, alt: "Young women learning ICT skills", label: "ICT", span: "col-span-6 md:col-span-4 aspect-square" },
-          { src: welfareImg, alt: "Welfare outreach in the community", label: "Welfare", span: "col-span-12 md:col-span-4 aspect-square" },
-          { src: leadershipImg, alt: "Mentor speaking to a circle of young women", label: "Leadership", span: "col-span-12 aspect-[21/9]" },
-          { src: mentorshipImg, alt: "Diverse women volunteers", label: "Volunteers", span: "col-span-6 md:col-span-5 aspect-[4/3]" },
-          { src: housingImg, alt: "Women reviewing a housing brochure", label: "Housing", span: "col-span-6 md:col-span-4 aspect-[4/3]" },
-          { src: womenSkills, alt: "Women learning bead-craft skills", label: "Community", span: "col-span-12 md:col-span-3 aspect-[4/3]" },
+          { src: girlEducation, alt: "Bints Foundation distributing school materials to girls", label: "Education" },
+          { src: womenEnterprise, alt: "Women's Economic Empowerment workshop", label: "Enterprise" },
+          { src: womenTailoring, alt: "Women in tailoring training", label: "Skills" },
+          { src: womenIct, alt: "Young women learning ICT skills", label: "ICT" },
+          { src: welfareImg, alt: "Welfare outreach in the community", label: "Welfare" },
+          { src: leadershipImg, alt: "Mentor speaking to a circle of young women", label: "Leadership" },
+          { src: mentorshipImg, alt: "Diverse women volunteers", label: "Volunteers" },
+          { src: housingImg, alt: "Women reviewing a housing brochure", label: "Housing" },
+          { src: womenSkills, alt: "Women learning bead-craft skills", label: "Community" },
         ].map((img) => (
-          <figure key={img.label} className={`${img.span} relative overflow-hidden group`}>
+          <figure key={img.label} className="relative aspect-[4/3] overflow-hidden group ring-1 ring-accent/20">
             <img src={img.src} alt={img.alt} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/0 to-transparent" />
             <figcaption className="absolute bottom-4 left-5 text-primary-foreground">
