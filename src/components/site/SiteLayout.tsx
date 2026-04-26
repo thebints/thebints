@@ -88,7 +88,7 @@ const Wordmark = ({ variant = "light" }: { variant?: "light" | "dark" }) => (
       width={180}
       height={64}
       className={cn(
-        "h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]",
+        "h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]",
         variant === "dark" && "brightness-0 invert",
       )}
     />
@@ -125,8 +125,8 @@ const MegaPanel = ({ items }: { items: SubItem[] }) => (
           >
             <span className="absolute left-0 top-0 h-full w-0.5 bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
             <div className="shrink-0 mt-0.5">
-              <div className="h-10 w-10 border border-accent/40 flex items-center justify-center text-accent transition-all duration-300 group-hover/item:bg-accent group-hover/item:text-accent-foreground group-hover/item:rotate-3">
-                <Ion name={item.icon} className="text-lg" />
+              <div className="h-11 w-11 bg-accent/15 border border-accent/50 flex items-center justify-center text-accent transition-all duration-300 group-hover/item:bg-accent group-hover/item:text-accent-foreground group-hover/item:rotate-3 group-hover/item:shadow-[0_6px_18px_-6px_hsl(var(--accent)/0.6)]">
+                <Ion name={item.icon} className="text-xl" />
               </div>
             </div>
             <div className="min-w-0">
@@ -354,10 +354,10 @@ export const SiteFooter = () => (
 
         <div className="lg:col-span-3">
           <div className="eyebrow text-accent mb-4">Contact</div>
-          <address className="not-italic text-sm text-primary-foreground/80 space-y-2 leading-relaxed">
-            <p className="flex gap-2"><Ion name="location-outline" className="text-accent shrink-0 mt-0.5" />Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</p>
-            <p className="flex gap-2"><Ion name="call-outline" className="text-accent shrink-0 mt-0.5" /><span>0913 303 5624<br />0814 999 0072</span></p>
-            <p className="flex gap-2"><Ion name="globe-outline" className="text-accent" />www.thebintsfoundation.com</p>
+          <address className="not-italic text-sm text-primary-foreground/80 space-y-3 leading-relaxed">
+            <p className="flex gap-2.5"><Ion name="location-outline" className="text-accent shrink-0 mt-0.5 text-base" /><span>Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</span></p>
+            <p className="flex gap-2.5"><Ion name="call-outline" className="text-accent shrink-0 mt-0.5 text-base" /><span><a href="tel:+2349133035624" className="hover:text-accent transition-colors">0913 303 5624</a><br /><a href="tel:+2348149990072" className="hover:text-accent transition-colors">0814 999 0072</a></span></p>
+            <p className="flex gap-2.5"><Ion name="mail-outline" className="text-accent shrink-0 mt-0.5 text-base" /><a href="mailto:support@thebintsfoundation.com" className="hover:text-accent transition-colors break-all">support@thebintsfoundation.com</a></p>
           </address>
         </div>
       </div>
