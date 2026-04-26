@@ -354,10 +354,10 @@ export const SiteFooter = () => (
 
         <div className="lg:col-span-3">
           <div className="eyebrow text-accent mb-4">Contact</div>
-          <address className="not-italic text-sm text-primary-foreground/80 space-y-2 leading-relaxed">
-            <p className="flex gap-2"><Ion name="location-outline" className="text-accent shrink-0 mt-0.5" />Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</p>
-            <p className="flex gap-2"><Ion name="call-outline" className="text-accent shrink-0 mt-0.5" /><span>0913 303 5624<br />0814 999 0072</span></p>
-            <p className="flex gap-2"><Ion name="globe-outline" className="text-accent" />www.thebintsfoundation.com</p>
+          <address className="not-italic text-sm text-primary-foreground/80 space-y-3 leading-relaxed">
+            <p className="flex gap-2.5"><Ion name="location-outline" className="text-accent shrink-0 mt-0.5 text-base" /><span>Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</span></p>
+            <p className="flex gap-2.5"><Ion name="call-outline" className="text-accent shrink-0 mt-0.5 text-base" /><span><a href="tel:+2349133035624" className="hover:text-accent transition-colors">0913 303 5624</a><br /><a href="tel:+2348149990072" className="hover:text-accent transition-colors">0814 999 0072</a></span></p>
+            <p className="flex gap-2.5"><Ion name="mail-outline" className="text-accent shrink-0 mt-0.5 text-base" /><a href="mailto:support@thebintsfoundation.com" className="hover:text-accent transition-colors break-all">support@thebintsfoundation.com</a></p>
           </address>
         </div>
       </div>
