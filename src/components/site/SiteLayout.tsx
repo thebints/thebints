@@ -125,8 +125,8 @@ const MegaPanel = ({ items }: { items: SubItem[] }) => (
           >
             <span className="absolute left-0 top-0 h-full w-0.5 bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
             <div className="shrink-0 mt-0.5">
-              <div className="h-10 w-10 border border-accent/40 flex items-center justify-center text-accent transition-all duration-300 group-hover/item:bg-accent group-hover/item:text-accent-foreground group-hover/item:rotate-3">
-                <Ion name={item.icon} className="text-lg" />
+              <div className="h-11 w-11 bg-accent/15 border border-accent/50 flex items-center justify-center text-accent transition-all duration-300 group-hover/item:bg-accent group-hover/item:text-accent-foreground group-hover/item:rotate-3 group-hover/item:shadow-[0_6px_18px_-6px_hsl(var(--accent)/0.6)]">
+                <Ion name={item.icon} className="text-xl" />
               </div>
             </div>
             <div className="min-w-0">
