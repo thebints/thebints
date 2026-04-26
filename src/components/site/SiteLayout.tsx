@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Ion } from "@/components/Ion";
 import { cn } from "@/lib/utils";
+import bintsLogo from "@/assets/bints-logo.png";
 
 interface SubItem {
   label: string;
@@ -79,19 +80,18 @@ export const NAV: MenuItem[] = [
   },
 ];
 
-const Wordmark = () => (
-  <Link to="/" className="group flex items-center gap-3" aria-label="The Bints Foundation — Home">
-    <div className="relative h-10 w-10 shrink-0">
-      <div className="absolute inset-0 rotate-45 bg-primary" />
-      <div className="absolute inset-1 rotate-45 bg-background flex items-center justify-center">
-        <span className="-rotate-45 font-display text-primary font-bold text-base leading-none">B</span>
-      </div>
-      <div className="absolute -inset-1 rotate-45 border border-accent/50" />
-    </div>
-    <div className="flex flex-col leading-none">
-      <span className="eyebrow text-[10px]">The</span>
-      <span className="font-display font-bold text-primary text-[15px] tracking-tight">BINTS FOUNDATION</span>
-    </div>
+const Wordmark = ({ variant = "light" }: { variant?: "light" | "dark" }) => (
+  <Link to="/" className="group inline-flex items-center" aria-label="The Bints Foundation — Home">
+    <img
+      src={bintsLogo}
+      alt="The Bints Foundation"
+      width={180}
+      height={64}
+      className={cn(
+        "h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]",
+        variant === "dark" && "brightness-0 invert",
+      )}
+    />
   </Link>
 );
 
@@ -164,7 +164,7 @@ export const SiteHeader = () => {
         <div className="container flex items-center justify-between py-2 text-[11px] tracking-wide">
           <div className="hidden sm:flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5"><Ion name="location-outline" className="text-accent" /> Apo-Gudu, Abuja, Nigeria</span>
-            <span className="inline-flex items-center gap-1.5"><Ion name="call-outline" className="text-accent" /> +234 903 000 0000</span>
+            <a href="tel:+2349133035624" className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"><Ion name="call-outline" className="text-accent" /> 0913 303 5624 · 0814 999 0072</a>
           </div>
           <div className="flex items-center gap-4 ml-auto">
             <span className="hidden sm:inline">Empowering Women & Girls — Since 2024</span>
@@ -356,7 +356,7 @@ export const SiteFooter = () => (
           <div className="eyebrow text-accent mb-4">Contact</div>
           <address className="not-italic text-sm text-primary-foreground/80 space-y-2 leading-relaxed">
             <p className="flex gap-2"><Ion name="location-outline" className="text-accent shrink-0 mt-0.5" />Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</p>
-            <p className="flex gap-2"><Ion name="call-outline" className="text-accent" />+234 903 000 0000</p>
+            <p className="flex gap-2"><Ion name="call-outline" className="text-accent shrink-0 mt-0.5" /><span>0913 303 5624<br />0814 999 0072</span></p>
             <p className="flex gap-2"><Ion name="globe-outline" className="text-accent" />www.thebintsfoundation.com</p>
           </address>
         </div>
