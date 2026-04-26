@@ -88,7 +88,7 @@ const Wordmark = ({ variant = "light" }: { variant?: "light" | "dark" }) => (
       width={180}
       height={64}
       className={cn(
-        "h-12 md:h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]",
+        "h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]",
         variant === "dark" && "brightness-0 invert",
       )}
     />
