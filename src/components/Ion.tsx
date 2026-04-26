@@ -7,7 +7,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       "ion-icon": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & { name?: string; size?: string },
+        React.HTMLAttributes<HTMLElement> & { name?: string; size?: string; class?: string },
         HTMLElement
       >;
     }
@@ -21,11 +21,14 @@ interface IonProps {
   "aria-hidden"?: boolean;
 }
 
-export const Ion = ({ name, className, style, ...rest }: IonProps) => (
-  <ion-icon
-    name={name}
-    className={className}
-    style={style}
-    aria-hidden={rest["aria-hidden"] ?? true}
-  />
-);
+export const Ion = ({ name, className, style, ...rest }: IonProps) => {
+  if (!name) return null;
+  return (
+    <ion-icon
+      name={name}
+      class={className}
+      style={style}
+      aria-hidden={rest["aria-hidden"] ?? true}
+    />
+  );
+};

@@ -110,23 +110,27 @@ const DonateButton = ({ className }: { className?: string }) => (
 );
 
 const MegaPanel = ({ items }: { items: SubItem[] }) => (
-  <div className="absolute left-1/2 top-full -translate-x-1/2 pt-4 z-50 hidden group-hover:block group-focus-within:block">
-    <div className="w-[640px] max-w-[92vw] bg-background editorial-shadow border border-border">
+  <div
+    className="absolute left-1/2 top-full -translate-x-1/2 pt-4 z-50 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+  >
+    <div className="w-[640px] max-w-[92vw] bg-background editorial-shadow border border-border overflow-hidden">
       <div className="h-px bg-gold" />
       <div className="grid grid-cols-2 gap-px bg-border">
-        {items.map((item) => (
+        {items.map((item, i) => (
           <Link
             key={item.to}
             to={item.to}
-            className="group/item flex gap-3 p-5 bg-background hover:bg-secondary/60 transition-colors"
+            style={{ transitionDelay: `${i * 30}ms` }}
+            className="group/item flex gap-3 p-5 bg-background hover:bg-secondary/60 transition-colors relative overflow-hidden"
           >
+            <span className="absolute left-0 top-0 h-full w-0.5 bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
             <div className="shrink-0 mt-0.5">
-              <div className="h-9 w-9 border border-accent/40 flex items-center justify-center text-accent">
+              <div className="h-10 w-10 border border-accent/40 flex items-center justify-center text-accent transition-all duration-300 group-hover/item:bg-accent group-hover/item:text-accent-foreground group-hover/item:rotate-3">
                 <Ion name={item.icon} className="text-lg" />
               </div>
             </div>
             <div className="min-w-0">
-              <div className="text-sm font-semibold text-primary tracking-tight">{item.label}</div>
+              <div className="text-sm font-semibold text-primary tracking-tight transition-transform duration-300 group-hover/item:translate-x-0.5">{item.label}</div>
               <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{item.blurb}</div>
             </div>
           </Link>
