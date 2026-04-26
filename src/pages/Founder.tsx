@@ -1,17 +1,53 @@
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { PageHero, CtaBand } from "@/components/site/Editorial";
+import { CtaBand, Eyebrow } from "@/components/site/Editorial";
 import { Ion } from "@/components/Ion";
 import founderPortrait from "@/assets/founder-portrait.jpg";
 
 const Founder = () => (
   <SiteLayout>
-    <PageHero
-      eyebrow="Founder's Message"
-      title={<>A letter from<br />Hajia Binta Ibrahim.</>}
-      intro="The conviction that gave The Bints Foundation its name and shape."
-      image={founderPortrait}
-      imageAlt="Hajia Binta Ibrahim, Founder"
-    />
+    {/* Editorial hero — portrait-led, responsive crop */}
+    <section className="relative overflow-hidden border-b border-border">
+      <div className="absolute inset-0 bg-secondary/40 paper-grain" aria-hidden />
+      <div className="container relative grid lg:grid-cols-12 gap-10 lg:gap-14 items-center py-16 md:py-24">
+        <div className="lg:col-span-6 order-2 lg:order-1 animate-fade-rise">
+          <div className="mb-6 inline-flex items-center gap-3">
+            <div className="h-12 w-12 bg-primary text-accent flex items-center justify-center ring-1 ring-accent/40">
+              <Ion name="create-outline" className="text-xl" />
+            </div>
+            <span className="h-px w-10 bg-accent" />
+          </div>
+          <Eyebrow>Founder's Message</Eyebrow>
+          <h1 className="display-serif-feel text-primary text-4xl sm:text-5xl lg:text-6xl mt-5 leading-[1.05]">
+            A letter from<br />Hajia Binta Ibrahim.
+          </h1>
+          <p className="mt-6 text-ink-soft text-lg max-w-xl leading-relaxed">
+            The conviction that gave The Bints Foundation its name and shape.
+          </p>
+          <div className="mt-7 gold-bar" />
+          <div className="mt-6 text-xs uppercase tracking-widest text-accent">FCAI · ARPA · Founder</div>
+        </div>
+
+        <div className="lg:col-span-6 order-1 lg:order-2 relative">
+          <div className="relative aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5] overflow-hidden editorial-shadow ring-1 ring-accent/40">
+            <img
+              src={founderPortrait}
+              alt="Hajia Binta Ibrahim, Founder of The Bints Foundation"
+              className="absolute inset-0 h-full w-full object-cover object-[60%_top] lg:object-[55%_top]"
+              loading="eager"
+              width={1080}
+              height={1350}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 text-primary-foreground">
+              <div className="eyebrow text-accent">The Founder</div>
+              <div className="font-display font-bold text-2xl tracking-tight mt-1">Hajia Binta Ibrahim</div>
+            </div>
+          </div>
+          <div className="absolute -left-3 -top-3 h-24 w-24 border-2 border-accent hidden md:block" aria-hidden />
+          <div className="absolute -right-3 -bottom-3 h-24 w-24 border border-accent/60 hidden md:block" aria-hidden />
+        </div>
+      </div>
+    </section>
 
     <section className="container py-20">
       <div className="grid lg:grid-cols-12 gap-12">

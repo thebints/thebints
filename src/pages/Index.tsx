@@ -205,10 +205,16 @@ const Index = () => (
     <section className="container py-24">
       <div className="grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 relative">
-          <div className="aspect-[3/4] overflow-hidden ring-1 ring-accent/40 editorial-shadow">
-            <img src={founderPortrait} alt="Hajia Binta Ibrahim, Founder" className="h-full w-full object-cover" loading="lazy" />
+          <div className="aspect-[4/5] overflow-hidden ring-1 ring-accent/40 editorial-shadow">
+            <img
+              src={founderPortrait}
+              alt="Hajia Binta Ibrahim, Founder"
+              className="h-full w-full object-cover object-[58%_top]"
+              loading="lazy"
+            />
           </div>
           <div className="absolute -right-3 -bottom-3 hidden md:block h-32 w-32 border border-accent" aria-hidden />
+          <div className="absolute -left-3 -top-3 hidden md:block h-20 w-20 border-2 border-accent/60" aria-hidden />
         </div>
         <div className="lg:col-span-7">
           <Eyebrow>Founder's Message</Eyebrow>
