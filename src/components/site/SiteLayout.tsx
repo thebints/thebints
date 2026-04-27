@@ -406,6 +406,7 @@ export const SiteFooter = () => (
             <li><Link to="/focus/education" className="hover:text-accent">Education</Link></li>
             <li><Link to="/focus/housing" className="hover:text-accent">Housing</Link></li>
             <li><Link to="/focus/welfare" className="hover:text-accent">Welfare</Link></li>
+            <li><Link to="/focus/leadership" className="hover:text-accent">Leadership</Link></li>
           </ul>
         </div>
 
