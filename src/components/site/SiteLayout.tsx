@@ -221,7 +221,7 @@ export const SiteHeader = () => {
             <a href="tel:+2349133035624" className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"><Ion name="call-outline" className="text-accent" /> 0913 303 5624 · 0814 999 0072</a>
           </div>
           <div className="flex items-center gap-4 ml-auto">
-            <span className="hidden sm:inline">Empowering Women & Girls — Since 2024</span>
+            
             <div className="flex items-center gap-3 text-base">
               <a href="#" aria-label="Instagram" className="hover:text-accent transition-colors"><Ion name="logo-instagram" /></a>
               <a href="#" aria-label="Facebook" className="hover:text-accent transition-colors"><Ion name="logo-facebook" /></a>
