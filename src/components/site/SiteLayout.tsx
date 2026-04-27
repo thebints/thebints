@@ -217,7 +217,7 @@ export const SiteHeader = () => {
       <div className="bg-primary text-primary-foreground/90">
         <div className="container flex items-center justify-between py-2 text-[11px] tracking-wide">
           <div className="hidden sm:flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5"><Ion name="location-outline" className="text-accent" /> Apo-Gudu, Abuja, Nigeria</span>
+            <span className="inline-flex items-center gap-1.5"><Ion name="location-outline" className="text-accent" /> Plot 636, David Jemibewon Crescent, Behind Eterna Filling Station, Apo-Gudu, Abuja</span>
             <a href="tel:+2349133035624" className="inline-flex items-center gap-1.5 hover:text-accent transition-colors"><Ion name="call-outline" className="text-accent" /> 0913 303 5624 · 0814 999 0072</a>
           </div>
           <div className="flex items-center gap-4 ml-auto">
