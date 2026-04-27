@@ -162,29 +162,11 @@ const Donate = () => {
                   type="submit"
                   className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-medium tracking-wide hover:bg-primary-glow transition flex-1 justify-center"
                 >
-                  <Ion name="heart" className="text-accent" />
+                  <Ion name="logo-whatsapp" className="text-accent text-base" />
                   Pledge ₦{pledgeAmount.toLocaleString()}
                   <Ion name="arrow-forward-outline" className="transition-transform group-hover:translate-x-1" />
                 </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!fullName || !email) {
-                      toast.error("Please enter your full name and email first.");
-                      return;
-                    }
-                    window.open(buildWhatsappUrl(), "_blank", "noopener,noreferrer");
-                  }}
-                  className="group inline-flex items-center gap-2 bg-[#25D366] text-white px-7 py-4 text-sm font-medium tracking-wide hover:brightness-110 transition justify-center"
-                  aria-label="Confirm pledge on WhatsApp"
-                >
-                  <Ion name="logo-whatsapp" className="text-lg" />
-                  Confirm on WhatsApp
-                </button>
               </div>
-              <p className="text-xs text-ink-soft">
-                When you pledge, WhatsApp will open with a pre-filled message to <strong className="text-primary">0913 303 5624</strong> summarising your details so our team can complete your donation.
-              </p>
             </form>
           </div>
 
