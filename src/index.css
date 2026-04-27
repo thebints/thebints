@@ -143,10 +143,17 @@
   }
 }
 
-/* Ionicons sizing */
+/* Ionicons sizing — ensure visible glyph area while loading */
 ion-icon {
   display: inline-flex;
   vertical-align: middle;
+  visibility: visible;
+  min-width: 1em;
+  min-height: 1em;
+}
+ion-icon[name=""],
+ion-icon:not([name]) {
+  display: none !important;
 }
 
 @keyframes fade-rise {
