@@ -13,14 +13,21 @@ import leadershipImg from "@/assets/leadership.jpg";
 import womenIct from "@/assets/women-ict.jpg";
 import womenSkills from "@/assets/women-skills.jpg";
 import womenTailoring from "@/assets/women-tailoring.jpg";
+import focusWomenEnterprise from "@/assets/focus-women-enterprise.jpg";
+import focusGirlEducation from "@/assets/focus-girl-education.jpg";
+import focusWelfare from "@/assets/focus-welfare.jpg";
+import focusMentorship from "@/assets/focus-mentorship.jpg";
+import focusLeadership from "@/assets/focus-leadership.jpg";
 
-const focusAreas = [
+const focusFeatured = [
   {
     index: "01",
     icon: "briefcase-outline",
     title: "Women's Economic Empowerment",
     body: "Supporting women to build, grow and sustain businesses through training, opportunities and enterprise development.",
     href: "/focus/economic-empowerment",
+    image: focusWomenEnterprise,
+    alt: "Bints Foundation founder mentoring women entrepreneurs",
   },
   {
     index: "02",
@@ -28,13 +35,20 @@ const focusAreas = [
     title: "Girl-Child Education & Mentorship",
     body: "Educational support, mentorship and leadership guidance for girls and young women.",
     href: "/focus/education",
+    image: focusGirlEducation,
+    alt: "Schoolgirls in uniform mentored by The Bints Foundation",
   },
+];
+
+const focusSecondary = [
   {
     index: "03",
     icon: "home-outline",
     title: "Asset Ownership & Social Housing",
     body: "Land and housing access through structured, dignity-led ownership pathways for low and middle-income women.",
     href: "/focus/housing",
+    image: focusWelfare,
+    alt: "Founder distributing welfare materials to women",
   },
   {
     index: "04",
@@ -42,6 +56,8 @@ const focusAreas = [
     title: "Welfare, Care & Humanitarian Support",
     body: "Structured support for vulnerable women and girls during times of need and crisis.",
     href: "/focus/welfare",
+    image: focusMentorship,
+    alt: "Mentorship circle with women in the community",
   },
   {
     index: "05",
@@ -49,6 +65,8 @@ const focusAreas = [
     title: "Leadership & Personal Development",
     body: "Equipping women and girls with leadership skills, confidence and capacity for personal and professional growth.",
     href: "/focus/leadership",
+    image: focusLeadership,
+    alt: "Leadership and strategy session with The Bints Foundation team",
   },
 ];
 
@@ -189,12 +207,68 @@ const Index = () => (
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-x-14 gap-y-2">
-          {focusAreas.map((f) => (
-            <Link key={f.index} to={f.href} className="block">
-              <NumberedItem index={f.index} icon={f.icon} title={f.title}>
-                {f.body}
-              </NumberedItem>
+        {/* Featured 2 */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {focusFeatured.map((f) => (
+            <Link key={f.index} to={f.href} className="group block bg-card border border-border ring-1 ring-accent/20 hover:ring-accent/60 transition-all editorial-shadow overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={f.image}
+                  alt={f.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent" />
+                <div className="absolute top-5 left-5 h-12 w-12 bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
+                  <Ion name={f.icon} className="text-2xl" />
+                </div>
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-primary-foreground">
+                  <div>
+                    <div className="font-display text-accent font-bold tracking-[0.3em] text-xs">{f.index}</div>
+                    <h3 className="font-display font-bold text-2xl md:text-3xl leading-tight tracking-tight mt-1">
+                      {f.title}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 md:p-7 flex items-start justify-between gap-5">
+                <p className="text-ink-soft text-sm leading-relaxed flex-1">{f.body}</p>
+                <span className="shrink-0 h-10 w-10 border border-accent/50 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition">
+                  <Ion name="arrow-forward-outline" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Secondary 3 */}
+        <div className="mt-6 lg:mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {focusSecondary.map((f) => (
+            <Link key={f.index} to={f.href} className="group block bg-card border border-border ring-1 ring-accent/20 hover:ring-accent/60 transition-all overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={f.image}
+                  alt={f.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-primary/10 to-transparent" />
+                <div className="absolute top-4 left-4 h-10 w-10 bg-accent text-accent-foreground flex items-center justify-center shadow-md">
+                  <Ion name={f.icon} className="text-xl" />
+                </div>
+                <div className="absolute top-4 right-4 font-display text-accent font-bold tracking-[0.3em] text-xs bg-primary/60 backdrop-blur-sm px-2 py-1">
+                  {f.index}
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display font-bold text-primary text-lg leading-snug tracking-tight">
+                  {f.title}
+                </h3>
+                <p className="mt-2 text-ink-soft text-[13px] leading-relaxed">{f.body}</p>
+                <span className="mt-4 link-gold text-xs font-medium inline-flex items-center gap-1.5">
+                  Learn more <Ion name="arrow-forward-outline" />
+                </span>
+              </div>
             </Link>
           ))}
         </div>
