@@ -147,10 +147,7 @@ const Index = () => (
             <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
           </div>
           <div className="absolute -left-4 -top-4 h-28 w-28 border-2 border-accent" aria-hidden />
-          <div className="absolute -right-4 -bottom-4 hidden md:block bg-primary text-primary-foreground p-5 max-w-[220px]">
-            <div className="eyebrow text-accent">Founder</div>
-            <p className="mt-2 text-sm leading-snug">Hajia Binta Ibrahim, FCAI ARPA</p>
-          </div>
+          
         </div>
       </div>
       <div className="h-px bg-gold opacity-60" />
