@@ -109,48 +109,87 @@ const DonateButton = ({ className }: { className?: string }) => (
   </Link>
 );
 
-const MegaPanel = ({ items }: { items: SubItem[] }) => (
+const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: string }) => (
   <div
-    className="absolute left-1/2 top-full -translate-x-1/2 pt-4 z-50 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+    className={cn(
+      "absolute left-1/2 top-full -translate-x-1/2 pt-5 z-50",
+      "invisible opacity-0 translate-y-3 scale-[0.98]",
+      "group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100",
+      "group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100",
+      "transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+      "origin-top",
+    )}
   >
-    <div className="w-[680px] max-w-[92vw] bg-background editorial-shadow border border-border overflow-hidden">
-      <div className="h-px bg-gold" />
-      <div className="grid grid-cols-2 gap-px bg-border">
-        {items.map((item, i) => (
+    {/* Floating arrow notch */}
+    <div className="absolute left-1/2 -translate-x-1/2 top-[14px] h-3 w-3 rotate-45 bg-background border-l border-t border-border" />
+    <div className="relative w-[760px] max-w-[94vw] bg-background/95 backdrop-blur-xl shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.35),0_8px_24px_-12px_hsl(var(--primary)/0.25)] border border-border overflow-hidden rounded-sm">
+      {/* Top gold accent */}
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="grid grid-cols-12">
+        {/* Featured intro column */}
+        <div className="col-span-4 bg-gradient-to-br from-primary to-primary-glow text-primary-foreground p-6 flex flex-col justify-between relative overflow-hidden">
+          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/15 blur-2xl" />
+          <div className="relative">
+            <div className="text-[10px] uppercase tracking-[0.25em] text-accent font-semibold">Explore</div>
+            <h4 className="font-display text-2xl font-bold mt-3 leading-tight">{parentLabel}</h4>
+            <div className="h-px w-10 bg-accent mt-4" />
+            <p className="text-[12px] text-primary-foreground/75 mt-4 leading-relaxed">
+              Structured, accountable programmes empowering women and girls across Nigeria.
+            </p>
+          </div>
           <Link
-            key={item.to}
-            to={item.to}
-            style={{ transitionDelay: `${i * 25}ms` }}
-            className="group/item flex items-start gap-4 px-5 py-4 bg-background hover:bg-secondary/60 transition-colors relative overflow-hidden"
+            to="/donate"
+            className="relative mt-6 inline-flex items-center gap-2 text-[12px] font-medium text-accent hover:gap-3 transition-all"
           >
-            <span className="absolute left-0 top-0 h-full w-0.5 bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
-            <div
+            <Ion name="heart-outline" /> Support our work
+            <Ion name="arrow-forward-outline" />
+          </Link>
+        </div>
+
+        {/* Items grid */}
+        <div className="col-span-8 grid grid-cols-2 gap-px bg-border/60">
+          {items.map((item, i) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              style={{ transitionDelay: `${60 + i * 35}ms` }}
               className={cn(
-                "shrink-0 h-11 w-11 flex items-center justify-center",
-                "bg-gradient-to-br from-accent/20 to-accent/5 ring-1 ring-accent/40 text-accent",
-                "transition-all duration-300",
-                "group-hover/item:from-accent group-hover/item:to-accent group-hover/item:text-accent-foreground group-hover/item:ring-accent group-hover/item:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]",
-                "[&>ion-icon]:text-[20px] [&>ion-icon]:leading-none",
+                "group/item relative flex items-start gap-3 px-4 py-3.5 bg-background hover:bg-secondary/50",
+                "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0",
+                "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
               )}
             >
-              <Ion name={item.icon} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <div className="text-[13.5px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
-                {item.label}
+              <span className="absolute left-0 top-0 h-full w-[2px] bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
+              <div
+                className={cn(
+                  "shrink-0 h-10 w-10 flex items-center justify-center rounded-sm",
+                  "bg-gradient-to-br from-accent/25 to-accent/5 ring-1 ring-accent/40 text-accent",
+                  "transition-all duration-300",
+                  "group-hover/item:from-accent group-hover/item:to-accent group-hover/item:text-accent-foreground",
+                  "group-hover/item:ring-accent group-hover/item:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]",
+                  "group-hover/item:-translate-y-0.5",
+                  "[&>ion-icon]:text-[18px] [&>ion-icon]:leading-none",
+                )}
+              >
+                <Ion name={item.icon} />
               </div>
-              <div className="text-[12px] text-muted-foreground mt-1 leading-relaxed line-clamp-2">
-                {item.blurb}
+              <div className="min-w-0 flex-1">
+                <div className="text-[13px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
+                  {item.label}
+                </div>
+                <div className="text-[11.5px] text-muted-foreground mt-0.5 leading-relaxed line-clamp-2">
+                  {item.blurb}
+                </div>
               </div>
-            </div>
-            <Ion
-              name="arrow-forward-outline"
-              className="shrink-0 mt-1 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
-            />
-          </Link>
-        ))}
+              <Ion
+                name="arrow-forward-outline"
+                className="shrink-0 mt-1 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+              />
+            </Link>
+          ))}
+        </div>
       </div>
-      <div className="h-px bg-gold/40" />
+      <div className="h-px bg-gold/30" />
     </div>
   </div>
 );
@@ -224,12 +263,13 @@ export const SiteHeader = () => {
                 <div key={item.label} className="group relative">
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1 px-3 py-2 text-[13px] font-medium tracking-wide text-ink-soft hover:text-primary transition-colors"
+                    className="relative inline-flex items-center gap-1 px-3 py-2 text-[13px] font-medium tracking-wide text-ink-soft hover:text-primary transition-colors group-hover:text-primary"
                   >
                     {item.label}
-                    <Ion name="chevron-down-outline" className="text-xs transition-transform group-hover:rotate-180" />
+                    <Ion name="chevron-down-outline" className="text-xs transition-transform duration-300 group-hover:rotate-180 group-hover:text-accent" />
+                    <span className="pointer-events-none absolute left-3 right-3 -bottom-0.5 h-[2px] bg-accent scale-x-0 origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
                   </button>
-                  <MegaPanel items={item.children} />
+                  <MegaPanel items={item.children} parentLabel={item.label} />
                 </div>
               );
             })}
