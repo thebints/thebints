@@ -27,14 +27,45 @@ const programmes = [
   "Housing & Social Housing Initiative",
 ];
 
+const WHATSAPP_NUMBER = "2349133035624"; // 0913 303 5624
+
 const Donate = () => {
   const [tier, setTier] = useState<number>(25000);
   const [custom, setCustom] = useState("");
   const [programme, setProgramme] = useState(programmes[0]);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [note, setNote] = useState("");
+
+  const pledgeAmount = custom ? Number(custom) : tier;
+
+  const buildWhatsappUrl = () => {
+    const amountFmt = `₦${pledgeAmount.toLocaleString()}`;
+    const lines = [
+      "*New Pledge — The Bints Foundation*",
+      "",
+      `*Full Name:* ${fullName || "—"}`,
+      `*Email:* ${email || "—"}`,
+      `*Pledge Amount:* ${amountFmt}`,
+      `*Designated Programme:* ${programme}`,
+    ];
+    if (note.trim()) {
+      lines.push(`*Note:* ${note.trim()}`);
+    }
+    lines.push("", "Please share the next steps to complete my donation. Thank you.");
+    const text = encodeURIComponent(lines.join("\n"));
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you. Our partnerships team will be in touch shortly.");
+    if (!fullName || !email) {
+      toast.error("Please enter your full name and email before pledging.");
+      return;
+    }
+    const url = buildWhatsappUrl();
+    window.open(url, "_blank", "noopener,noreferrer");
+    toast.success("Opening WhatsApp to confirm your pledge…");
   };
 
   return (
@@ -121,21 +152,38 @@ const Donate = () => {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-3">
-                <input required placeholder="Full name" className="border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
-                <input required type="email" placeholder="Email address" className="border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
+                <input required value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Full name" className="border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
+                <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address" className="border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
               </div>
-              <textarea rows={3} placeholder="A note for our team (optional)" className="w-full border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
+              <textarea rows={3} value={note} onChange={(e) => setNote(e.target.value)} placeholder="A note for our team (optional)" className="w-full border border-border bg-card px-4 py-3.5 text-sm focus:border-accent outline-none" />
 
-              <button
-                type="submit"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-medium tracking-wide hover:bg-primary-glow transition w-full sm:w-auto justify-center"
-              >
-                <Ion name="heart" className="text-accent" />
-                Pledge {custom ? `₦${Number(custom).toLocaleString()}` : `₦${tier.toLocaleString()}`}
-                <Ion name="arrow-forward-outline" className="transition-transform group-hover:translate-x-1" />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  type="submit"
+                  className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-medium tracking-wide hover:bg-primary-glow transition flex-1 justify-center"
+                >
+                  <Ion name="heart" className="text-accent" />
+                  Pledge ₦{pledgeAmount.toLocaleString()}
+                  <Ion name="arrow-forward-outline" className="transition-transform group-hover:translate-x-1" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!fullName || !email) {
+                      toast.error("Please enter your full name and email first.");
+                      return;
+                    }
+                    window.open(buildWhatsappUrl(), "_blank", "noopener,noreferrer");
+                  }}
+                  className="group inline-flex items-center gap-2 bg-[#25D366] text-white px-7 py-4 text-sm font-medium tracking-wide hover:brightness-110 transition justify-center"
+                  aria-label="Confirm pledge on WhatsApp"
+                >
+                  <Ion name="logo-whatsapp" className="text-lg" />
+                  Confirm on WhatsApp
+                </button>
+              </div>
               <p className="text-xs text-ink-soft">
-                After you pledge, our partnerships team will reach out with bank transfer details and a receipt.
+                When you pledge, WhatsApp will open with a pre-filled message to <strong className="text-primary">0913 303 5624</strong> summarising your details so our team can complete your donation.
               </p>
             </form>
           </div>
