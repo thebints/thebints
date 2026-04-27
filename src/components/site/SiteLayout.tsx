@@ -393,7 +393,9 @@ export const SiteFooter = () => (
             <li><Link to="/about/founder" className="hover:text-accent">About</Link></li>
             <li><Link to="/programmes/women-empowerment" className="hover:text-accent">Programmes</Link></li>
             <li><Link to="/get-involved/partner" className="hover:text-accent">Partner</Link></li>
-            <li><Link to="/media/reports" className="hover:text-accent">Reports</Link></li>
+            <li><Link to="/get-involved/volunteer" className="hover:text-accent">Volunteer</Link></li>
+            <li><Link to="/get-involved/mentor" className="hover:text-accent">Mentorship</Link></li>
+            <li><Link to="/media/reports" className="hover:text-accent">Impact Reports</Link></li>
           </ul>
         </div>
 
@@ -404,6 +406,7 @@ export const SiteFooter = () => (
             <li><Link to="/focus/education" className="hover:text-accent">Education</Link></li>
             <li><Link to="/focus/housing" className="hover:text-accent">Housing</Link></li>
             <li><Link to="/focus/welfare" className="hover:text-accent">Welfare</Link></li>
+            <li><Link to="/focus/leadership" className="hover:text-accent">Leadership</Link></li>
           </ul>
         </div>
 
