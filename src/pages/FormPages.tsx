@@ -79,9 +79,9 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
                 );
               })}
               <div className="sm:col-span-2">
-                <button type="submit" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-medium tracking-wide hover:bg-primary-glow transition">
+                <button type="submit" disabled={submitting} className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-medium tracking-wide hover:bg-primary-glow transition disabled:opacity-60">
                   <Ion name="paper-plane-outline" />
-                  {submitLabel}
+                  {submitting ? "Submitting…" : submitLabel}
                   <Ion name="arrow-forward-outline" className="transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
