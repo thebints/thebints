@@ -114,6 +114,7 @@ export const PopupAnnouncement = () => {
             </div>
           )}
         </div>
+        </div>
       </div>
     </div>
   );
