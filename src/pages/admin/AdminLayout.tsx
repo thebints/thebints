@@ -11,6 +11,8 @@ const NAV = [
   { to: "/admin/popups", label: "Popups", icon: "megaphone-outline" },
   { to: "/admin/events", label: "Events", icon: "calendar-outline" },
   { to: "/admin/applications", label: "Applications", icon: "document-text-outline" },
+  { to: "/admin/reports", label: "Impact Reports", icon: "reader-outline" },
+  { to: "/admin/gallery", label: "Gallery", icon: "images-outline" },
 ];
 
 const AdminLayout = () => {
