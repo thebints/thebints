@@ -60,7 +60,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "About Us",
     title: "Vision & Mission",
     intro: "The compass that guides every programme, every partnership and every encounter.",
-    image: leadershipImg,
+    image: speakerPodium,
     body: (
       <>
         <Heading>Our Vision</Heading>
@@ -139,7 +139,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "About Us",
     title: "Background",
     intro: "The gap that called us into being.",
-    image: mentorshipImg,
+    image: teamCelebration,
     body: (
       <>
         <p className="drop-cap">Across many communities, women and girls continue to face significant challenges: limited access to quality education and mentorship; economic vulnerability and restricted access to capital; a shortage of structured support systems; exposure to social and welfare challenges; and limited opportunities for personal and leadership development.</p>
@@ -238,7 +238,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Our Focus",
     title: "Welfare, Care & Humanitarian Support",
     intro: "Structured support for vulnerable women and girls during times of need and crisis.",
-    image: welfareImg,
+    image: welfareDistribution,
     body: (
       <>
         <p>Care, delivered with structure. Our welfare interventions meet women and girls in moments of vulnerability with practical support and lasting follow-through.</p>
@@ -264,7 +264,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Our Focus",
     title: "Leadership & Personal Development",
     intro: "Equipping women and girls with leadership skills, confidence and capacity for personal and professional growth.",
-    image: leadershipImg,
+    image: leadershipSkills,
     body: (
       <>
         <p>Leadership is not a title — it is a practice. We equip women and girls with the inner confidence and outer capability to lead in homes, communities, businesses and institutions.</p>
@@ -285,7 +285,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Programme",
     title: "Bints Women Empowerment Programme",
     intro: "Our flagship empowerment track — training, capacity, confidence and access for women across sectors.",
-    image: womenEnterprise,
+    image: businessGrowth,
     body: (
       <>
         <p>The Women Empowerment Programme delivers structured training, mentorship and access to opportunity for women seeking self-reliance and growth.</p>
@@ -325,7 +325,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Programme",
     title: "Bints Skills for Dignity Programme",
     intro: "Vocational and digital skills with real market value — restoring agency through ability.",
-    image: womenTailoring,
+    image: artisanWomen,
     body: (
       <>
         <p>Skills for Dignity prepares women for sustainable livelihoods through training rooted in market demand, professional standards and personal pride.</p>
@@ -488,7 +488,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Get Involved",
     title: "Partner With Us",
     intro: "The Bints Foundation welcomes partnerships across grants, education, skills, women empowerment, dignity, mentorship, community outreach and social housing.",
-    image: leadershipImg,
+    image: teamCelebration,
     body: (
       <>
         <p>We partner with public institutions, private organisations, foundations and development agencies to drive measurable, sustainable impact for women and girls.</p>
@@ -524,7 +524,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     eyebrow: "Get Involved",
     title: "Concerned Sisters Forum (CSF)",
     intro: "Our strategic community engagement platform reaching women at the grassroots.",
-    image: mentorshipImg,
+    image: leadershipSkills,
     body: (
       <>
         <p>The Concerned Sisters Forum (CSF) serves as a strategic community engagement platform through which The Bints Foundation reaches and supports women.</p>
