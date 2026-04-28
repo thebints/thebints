@@ -13,6 +13,7 @@ const NAV = [
   { to: "/admin/applications", label: "Applications", icon: "document-text-outline" },
   { to: "/admin/reports", label: "Impact Reports", icon: "reader-outline" },
   { to: "/admin/gallery", label: "Gallery", icon: "images-outline" },
+  { to: "/admin/news", label: "News & Stories", icon: "newspaper-outline" },
 ];
 
 const AdminLayout = () => {
