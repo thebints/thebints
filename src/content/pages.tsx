@@ -25,6 +25,12 @@ import founderPortrait from "@/assets/founder-portrait.jpg";
 import womenIct from "@/assets/women-ict.jpg";
 import womenSkills from "@/assets/women-skills.jpg";
 import womenTailoring from "@/assets/women-tailoring.jpg";
+import welfareDistribution from "@/assets/welfare-distribution.jpg";
+import leadershipSkills from "@/assets/leadership-skills.jpg";
+import teamCelebration from "@/assets/team-celebration.jpg";
+import speakerPodium from "@/assets/speaker-podium.jpg";
+import artisanWomen from "@/assets/artisan-women.jpg";
+import businessGrowth from "@/assets/business-growth.jpg";
 
 const Bullets = ({ items }: { items: string[] }) => (
   <ul className="space-y-3 not-prose">
