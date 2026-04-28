@@ -17,7 +17,6 @@ const Founder = lazy(() => import("./pages/Founder.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 const DynamicPage = lazy(() => import("./pages/DynamicPage.tsx"));
 const Events = lazy(() => import("./pages/Events.tsx"));
-const FormPages = lazy(() => import("./pages/FormPages.tsx"));
 const Volunteer = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Volunteer })));
 const Mentor = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Mentor })));
 const Apply = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Apply })));
