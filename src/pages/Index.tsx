@@ -177,19 +177,6 @@ const Index = () => (
             The Bints Foundation was established as a structured platform to bridge the gaps that leave many women and girls underserved. We move beyond short-term interventions to design programmes that build capacity, inspire confidence and create pathways for long-term transformation.
           </p>
 
-          {/* Mini stats */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-3 sm:gap-4">
-            {[
-              { k: "5", l: "Core Values" },
-              { k: "10+", l: "Programmes" },
-              { k: "1", l: "Mission" },
-            ].map((s) => (
-              <div key={s.l} className="border-l-2 border-accent pl-2.5 sm:pl-3">
-                <div className="font-display text-primary text-xl sm:text-2xl font-bold">{s.k}</div>
-                <div className="text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] text-ink-soft mt-1 leading-tight">{s.l}</div>
-              </div>
-            ))}
-          </div>
         </Reveal>
 
         {/* RIGHT — Premium values card */}
