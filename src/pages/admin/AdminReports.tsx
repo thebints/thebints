@@ -28,8 +28,20 @@ const AdminReports = () => {
   const [items, setItems] = useState<ReportRow[]>([]);
   const [form, setForm] = useState(empty);
   const [file, setFile] = useState<File | null>(null);
+  const [coverFile, setCoverFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const coverRef = useRef<HTMLInputElement>(null);
+
+  const uploadCover = async (f: File): Promise<string> => {
+    if (!f.type.startsWith("image/")) throw new Error("Cover must be an image");
+    if (f.size > 5 * 1024 * 1024) throw new Error("Cover image must be under 5 MB");
+    const ext = f.name.split(".").pop() || "jpg";
+    const path = `covers/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+    const { error } = await supabase.storage.from("impact-reports").upload(path, f, { contentType: f.type, cacheControl: "3600" });
+    if (error) throw error;
+    return supabase.storage.from("impact-reports").getPublicUrl(path).data.publicUrl;
+  };
 
   const load = async () => {
     const { data } = await supabase.from("impact_reports").select("*").order("report_date", { ascending: false });
@@ -54,6 +66,12 @@ const AdminReports = () => {
       if (upErr) throw upErr;
       const { data: pub } = supabase.storage.from("impact-reports").getPublicUrl(path);
 
+      let coverUrl: string | null = null;
+      if (coverFile) {
+        try { coverUrl = await uploadCover(coverFile); }
+        catch (e: any) { toast.error(e.message); }
+      }
+
       const { error } = await supabase.from("impact_reports").insert({
         title: form.title.trim(),
         description: form.description.trim() || null,
@@ -61,6 +79,7 @@ const AdminReports = () => {
         report_date: form.report_date,
         file_url: pub.publicUrl,
         file_size_bytes: file.size,
+        cover_image_url: coverUrl,
         published: form.published,
       });
       if (error) throw error;
@@ -68,7 +87,9 @@ const AdminReports = () => {
       toast.success("Report uploaded");
       setForm(empty);
       setFile(null);
+      setCoverFile(null);
       if (fileRef.current) fileRef.current.value = "";
+      if (coverRef.current) coverRef.current.value = "";
       load();
     } catch (err: any) {
       toast.error(err.message || "Upload failed");
@@ -80,14 +101,18 @@ const AdminReports = () => {
   const remove = async (r: ReportRow) => {
     if (!confirm(`Delete "${r.title}"?`)) return;
     // Best-effort storage cleanup
-    try {
-      const url = new URL(r.file_url);
-      const idx = url.pathname.indexOf("/impact-reports/");
-      if (idx >= 0) {
-        const path = decodeURIComponent(url.pathname.slice(idx + "/impact-reports/".length));
-        await supabase.storage.from("impact-reports").remove([path]);
-      }
-    } catch { /* ignore */ }
+    const cleanup = async (url: string) => {
+      try {
+        const u = new URL(url);
+        const idx = u.pathname.indexOf("/impact-reports/");
+        if (idx >= 0) {
+          const path = decodeURIComponent(u.pathname.slice(idx + "/impact-reports/".length));
+          await supabase.storage.from("impact-reports").remove([path]);
+        }
+      } catch { /* ignore */ }
+    };
+    await cleanup(r.file_url);
+    if (r.cover_image_url) await cleanup(r.cover_image_url);
     const { error } = await supabase.from("impact_reports").delete().eq("id", r.id);
     if (error) { toast.error(error.message); return; }
     toast.success("Deleted");
