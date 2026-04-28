@@ -11,10 +11,12 @@ const Founder = () => (
       <div className="container relative grid lg:grid-cols-12 gap-10 lg:gap-14 items-center py-16 md:py-24">
         <div className="lg:col-span-6 order-2 lg:order-1 animate-fade-rise">
           <div className="mb-6 inline-flex items-center gap-3">
-            <div className="h-12 w-12 bg-primary text-accent flex items-center justify-center ring-1 ring-accent/40">
-              <Ion name="create-outline" className="text-xl" />
+            <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-accent shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] ring-1 ring-accent/50 rounded-sm overflow-hidden">
+              <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--accent)/0.35),transparent_60%)]" aria-hidden />
+              <span className="absolute inset-[3px] ring-1 ring-accent/25 rounded-[2px]" aria-hidden />
+              <Ion name="create-outline" className="relative text-[22px]" />
             </div>
-            <span className="h-px w-10 bg-accent" />
+            <span className="h-px w-12 bg-gradient-to-r from-accent to-transparent" />
           </div>
           <Eyebrow>Founder's Message</Eyebrow>
           <h1 className="display-serif-feel text-primary text-4xl sm:text-5xl lg:text-6xl mt-5 leading-[1.05]">
