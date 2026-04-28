@@ -17,7 +17,7 @@ interface FormPageProps {
   submitLabel: string;
   successMsg: string;
   sidebar: { title: string; cards: Array<{ icon: string; title: string; body: string }> };
-  applicationType?: "volunteer" | "mentor";
+  applicationType?: "volunteer" | "mentor" | "partner";
 }
 
 const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMsg, sidebar, applicationType }: FormPageProps) => {
@@ -39,6 +39,10 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
         get("years") && `Years: ${get("years")}`,
         get("expertise") && `Expertise: ${get("expertise")}`,
         get("preference") && `Preference: ${get("preference")}`,
+        get("organization") && `Organization: ${get("organization")}`,
+        get("role") && `Role: ${get("role")}`,
+        get("website") && `Website: ${get("website")}`,
+        get("partnership_type") && `Partnership Type: ${get("partnership_type")}`,
         get("note") && `Note: ${get("note")}`,
       ].filter(Boolean).join("\n");
       const { error } = await supabase.from("applications").insert({
@@ -46,9 +50,9 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
         full_name,
         email,
         phone: get("phone"),
-        location: get("city"),
-        area_of_interest: get("expertise") || get("skills"),
-        experience: get("years") || get("profession"),
+        location: get("city") || get("country"),
+        area_of_interest: get("expertise") || get("skills") || get("partnership_type"),
+        experience: get("years") || get("profession") || get("organization"),
         message,
       });
       setSubmitting(false);
@@ -180,6 +184,37 @@ export const Apply = () => (
         { icon: "lock-closed-outline", title: "Confidential", body: "Every application is handled with discretion and respect." },
         { icon: "time-outline", title: "Within 14 days", body: "We aim to respond to applications within two weeks." },
         { icon: "heart-outline", title: "With dignity", body: "We listen first. Support is offered with structure, not pity." },
+      ],
+    }}
+  />
+);
+
+export const Partner = () => (
+  <FormPage
+    applicationType="partner"
+    eyebrow="Get Involved"
+    title="Partner With Us"
+    intro="The Bints Foundation welcomes partnerships across grants, education, skills, women empowerment, dignity, mentorship, community outreach and social housing."
+    image={teamCelebration}
+    fields={[
+      { name: "name", label: "Contact full name" },
+      { name: "email", label: "Work email", type: "email" },
+      { name: "phone", label: "Phone" },
+      { name: "organization", label: "Organization / Company" },
+      { name: "role", label: "Your role / position" },
+      { name: "website", label: "Website (optional)", type: "url" },
+      { name: "country", label: "Country / City" },
+      { name: "partnership_type", label: "Type of partnership", placeholder: "Grant, sponsorship, programme, CSR, in-kind, MoU…", full: true },
+      { name: "note", label: "Tell us about your partnership goals", textarea: true },
+    ]}
+    submitLabel="Submit Partnership Enquiry"
+    successMsg="Thank you. Our partnerships team will be in touch shortly."
+    sidebar={{
+      title: "What partners receive",
+      cards: [
+        { icon: "documents-outline", title: "Co-designed proposals", body: "Programme designs tailored to your strategic goals and CSR priorities." },
+        { icon: "bar-chart-outline", title: "Transparent reporting", body: "Clear monitoring and evaluation frameworks with measurable outcomes." },
+        { icon: "megaphone-outline", title: "Visibility & storytelling", body: "Brand alignment, impact stories and recognition across our channels." },
       ],
     }}
   />

@@ -70,10 +70,10 @@ const Contact = () => {
                   </div>
                 </li>
                 <li className="flex gap-3">
-                  <Ion name="globe-outline" className="text-accent text-xl shrink-0 mt-0.5" />
+                  <Ion name="mail-outline" className="text-accent text-xl shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-primary-foreground/60 text-[11px] uppercase tracking-widest">Web</div>
-                    <div className="mt-1">www.thebintsfoundation.com</div>
+                    <div className="text-primary-foreground/60 text-[11px] uppercase tracking-widest">Email</div>
+                    <a href="mailto:support@thebintsfoundation.com" className="mt-1 block hover:text-accent transition-colors break-all">support@thebintsfoundation.com</a>
                   </div>
                 </li>
               </ul>
