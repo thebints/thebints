@@ -18,65 +18,65 @@ interface MenuItem {
 }
 
 export const NAV: MenuItem[] = [
-  { label: "Home", to: "/", icon: "home-outline" },
+  { label: "Home", to: "/", icon: "home-sharp" },
   {
     label: "About Us",
-    icon: "information-circle-outline",
+    icon: "information-circle-sharp",
     children: [
-      { label: "Founder's Message", to: "/about/founder", icon: "create-outline", blurb: "A letter from Hajia Binta Ibrahim, our founder." },
-      { label: "Vision & Mission", to: "/about/vision-mission", icon: "telescope-outline", blurb: "The compass that guides our work." },
-      { label: "Core Values — BINTS", to: "/about/values", icon: "diamond-outline", blurb: "Benevolence. Integrity. Nurture. Transformation. Sustainability." },
-      { label: "Governance & Leadership", to: "/about/governance", icon: "library-outline", blurb: "Our framework for accountability and trust." },
-      { label: "Background", to: "/about/background", icon: "book-outline", blurb: "The gap we exist to close." },
+      { label: "Founder's Message", to: "/about/founder", icon: "create-sharp", blurb: "A letter from Hajia Binta Ibrahim, our founder." },
+      { label: "Vision & Mission", to: "/about/vision-mission", icon: "telescope-sharp", blurb: "The compass that guides our work." },
+      { label: "Core Values — BINTS", to: "/about/values", icon: "diamond-sharp", blurb: "Benevolence. Integrity. Nurture. Transformation. Sustainability." },
+      { label: "Governance & Leadership", to: "/about/governance", icon: "library-sharp", blurb: "Our framework for accountability and trust." },
+      { label: "Background", to: "/about/background", icon: "book-sharp", blurb: "The gap we exist to close." },
     ],
   },
   {
     label: "Our Focus",
-    icon: "compass-outline",
+    icon: "compass-sharp",
     children: [
-      { label: "Women's Economic Empowerment", to: "/focus/economic-empowerment", icon: "briefcase-outline", blurb: "Enterprise, training, and pathways to capital." },
-      { label: "Girl-Child Education & Mentorship", to: "/focus/education", icon: "school-outline", blurb: "Schooling, mentorship and confidence for young women." },
-      { label: "Asset Ownership & Social Housing", to: "/focus/housing", icon: "home-outline", blurb: "Land, housing and dignity-led ownership models." },
-      { label: "Welfare & Humanitarian Care", to: "/focus/welfare", icon: "heart-outline", blurb: "Structured support in moments of need." },
-      { label: "Leadership & Personal Development", to: "/focus/leadership", icon: "ribbon-outline", blurb: "Equipping women to lead in every room." },
+      { label: "Women's Economic Empowerment", to: "/focus/economic-empowerment", icon: "briefcase-sharp", blurb: "Enterprise, training, and pathways to capital." },
+      { label: "Girl-Child Education & Mentorship", to: "/focus/education", icon: "school-sharp", blurb: "Schooling, mentorship and confidence for young women." },
+      { label: "Asset Ownership & Social Housing", to: "/focus/housing", icon: "home-sharp", blurb: "Land, housing and dignity-led ownership models." },
+      { label: "Welfare & Humanitarian Care", to: "/focus/welfare", icon: "heart-sharp", blurb: "Structured support in moments of need." },
+      { label: "Leadership & Personal Development", to: "/focus/leadership", icon: "ribbon-sharp", blurb: "Equipping women to lead in every room." },
     ],
   },
   {
     label: "Programmes",
-    icon: "albums-outline",
+    icon: "albums-sharp",
     children: [
-      { label: "Women Empowerment Programme", to: "/programmes/women-empowerment", icon: "sparkles-outline", blurb: "Our flagship empowerment track." },
-      { label: "Girl-Child Education Support", to: "/programmes/girl-child-education", icon: "school-outline", blurb: "Scholarships and learning support." },
-      { label: "Skills for Dignity", to: "/programmes/skills-for-dignity", icon: "construct-outline", blurb: "Vocational skills with market value." },
-      { label: "Mentorship Circle", to: "/programmes/mentorship-circle", icon: "people-circle-outline", blurb: "Structured mentorship for women & girls." },
-      { label: "Welfare & Care Outreach", to: "/programmes/welfare-care", icon: "hand-left-outline", blurb: "Direct support to vulnerable families." },
-      { label: "Enterprise Support Scheme", to: "/programmes/enterprise-support", icon: "trending-up-outline", blurb: "Tools and capital for women in business." },
-      { label: "Back-to-School Project", to: "/programmes/back-to-school", icon: "bag-outline", blurb: "Returning girls to the classroom." },
-      { label: "Dignity Kit Project", to: "/programmes/dignity-kit", icon: "gift-outline", blurb: "Hygiene and dignity essentials." },
-      { label: "Widows Support Programme", to: "/programmes/widows-support", icon: "rose-outline", blurb: "Standing with widows with care and structure." },
-      { label: "Housing & Social Housing Initiative", to: "/programmes/housing-initiative", icon: "business-outline", blurb: "Affordable, cooperative and installment-based housing." },
+      { label: "Women Empowerment Programme", to: "/programmes/women-empowerment", icon: "sparkles-sharp", blurb: "Our flagship empowerment track." },
+      { label: "Girl-Child Education Support", to: "/programmes/girl-child-education", icon: "school-sharp", blurb: "Scholarships and learning support." },
+      { label: "Skills for Dignity", to: "/programmes/skills-for-dignity", icon: "construct-sharp", blurb: "Vocational skills with market value." },
+      { label: "Mentorship Circle", to: "/programmes/mentorship-circle", icon: "people-circle-sharp", blurb: "Structured mentorship for women & girls." },
+      { label: "Welfare & Care Outreach", to: "/programmes/welfare-care", icon: "hand-left-sharp", blurb: "Direct support to vulnerable families." },
+      { label: "Enterprise Support Scheme", to: "/programmes/enterprise-support", icon: "trending-up-sharp", blurb: "Tools and capital for women in business." },
+      { label: "Back-to-School Project", to: "/programmes/back-to-school", icon: "bag-sharp", blurb: "Returning girls to the classroom." },
+      { label: "Dignity Kit Project", to: "/programmes/dignity-kit", icon: "gift-sharp", blurb: "Hygiene and dignity essentials." },
+      { label: "Widows Support Programme", to: "/programmes/widows-support", icon: "rose-sharp", blurb: "Standing with widows with care and structure." },
+      { label: "Housing & Social Housing Initiative", to: "/programmes/housing-initiative", icon: "business-sharp", blurb: "Affordable, cooperative and installment-based housing." },
     ],
   },
   {
     label: "Get Involved",
-    icon: "hand-right-outline",
+    icon: "hand-right-sharp",
     children: [
-      { label: "Partner With Us", to: "/get-involved/partner", icon: "git-merge-outline", blurb: "For corporates, agencies and foundations." },
-      { label: "Volunteer", to: "/get-involved/volunteer", icon: "people-outline", blurb: "Lend your skills, time and presence." },
-      { label: "Mentorship Circle", to: "/get-involved/mentor", icon: "person-add-outline", blurb: "Become a mentor in our circle." },
-      { label: "Concerned Sisters Forum", to: "/get-involved/csf", icon: "flower-outline", blurb: "Our grassroots community network." },
-      { label: "Apply for Support", to: "/get-involved/apply", icon: "document-text-outline", blurb: "If you or someone you know needs help." },
-      { label: "Contact", to: "/contact", icon: "mail-outline", blurb: "Apo-Gudu, Abuja — let's talk." },
+      { label: "Partner With Us", to: "/get-involved/partner", icon: "git-merge-sharp", blurb: "For corporates, agencies and foundations." },
+      { label: "Volunteer", to: "/get-involved/volunteer", icon: "people-sharp", blurb: "Lend your skills, time and presence." },
+      { label: "Mentorship Circle", to: "/get-involved/mentor", icon: "person-add-sharp", blurb: "Become a mentor in our circle." },
+      { label: "Concerned Sisters Forum", to: "/get-involved/csf", icon: "flower-sharp", blurb: "Our grassroots community network." },
+      { label: "Apply for Support", to: "/get-involved/apply", icon: "document-text-sharp", blurb: "If you or someone you know needs help." },
+      { label: "Contact", to: "/contact", icon: "mail-sharp", blurb: "Apo-Gudu, Abuja — let's talk." },
     ],
   },
   {
     label: "Media & Resources",
-    icon: "newspaper-outline",
+    icon: "newspaper-sharp",
     children: [
-      { label: "News & Stories", to: "/media/news", icon: "reader-outline", blurb: "Updates from the field." },
-      { label: "Events", to: "/media/events", icon: "calendar-outline", blurb: "Upcoming gatherings, workshops & fundraisers." },
-      { label: "Gallery", to: "/media/gallery", icon: "images-outline", blurb: "Moments from our programmes." },
-      { label: "Impact Reports", to: "/media/reports", icon: "stats-chart-outline", blurb: "Transparent reporting and outcomes." },
+      { label: "News & Stories", to: "/media/news", icon: "reader-sharp", blurb: "Updates from the field." },
+      { label: "Events", to: "/media/events", icon: "calendar-sharp", blurb: "Upcoming gatherings, workshops & fundraisers." },
+      { label: "Gallery", to: "/media/gallery", icon: "images-sharp", blurb: "Moments from our programmes." },
+      { label: "Impact Reports", to: "/media/reports", icon: "stats-chart-sharp", blurb: "Transparent reporting and outcomes." },
     ],
   },
 ];
@@ -148,14 +148,14 @@ const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: stri
         </div>
 
         {/* Items grid */}
-        <div className="col-span-8 grid grid-cols-2 gap-px bg-border/60">
+        <div className="col-span-8 grid grid-cols-2 auto-rows-fr gap-px bg-border/60">
           {items.map((item, i) => (
             <Link
               key={item.to}
               to={item.to}
               style={{ transitionDelay: `${60 + i * 35}ms` }}
               className={cn(
-                "group/item relative flex items-start gap-3 px-4 py-3.5 bg-background hover:bg-secondary/50",
+                "group/item relative flex items-center gap-3 px-5 py-4 min-h-[68px] bg-background hover:bg-secondary/50",
                 "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0",
                 "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
               )}
@@ -163,25 +163,27 @@ const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: stri
               <span className="absolute left-0 top-0 h-full w-[2px] bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
               <div
                 className={cn(
-                  "shrink-0 h-10 w-10 flex items-center justify-center rounded-sm",
-                  "bg-gradient-to-br from-accent/25 to-accent/5 ring-1 ring-accent/40 text-accent",
+                  "shrink-0 h-11 w-11 flex items-center justify-center rounded-md relative overflow-hidden",
+                  "bg-gradient-to-br from-primary to-primary-glow ring-1 ring-accent/50 text-accent",
+                  "shadow-[0_6px_16px_-8px_hsl(var(--primary)/0.55)]",
                   "transition-all duration-300",
                   "group-hover/item:from-accent group-hover/item:to-accent group-hover/item:text-accent-foreground",
-                  "group-hover/item:ring-accent group-hover/item:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]",
+                  "group-hover/item:ring-accent group-hover/item:shadow-[0_10px_24px_-10px_hsl(var(--accent)/0.7)]",
                   "group-hover/item:-translate-y-0.5",
-                  "[&>ion-icon]:text-[18px] [&>ion-icon]:leading-none",
+                  "[&>ion-icon]:text-[20px] [&>ion-icon]:leading-none [&>ion-icon]:relative",
                 )}
               >
+                <span className="absolute inset-[3px] ring-1 ring-accent/20 rounded-[3px] pointer-events-none" aria-hidden />
                 <Ion name={item.icon} />
               </div>
-              <div className="min-w-0 flex-1 self-center">
-                <div className="text-[13px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
+              <div className="min-w-0 flex-1">
+                <div className="text-[13.5px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
                   {item.label}
                 </div>
               </div>
               <Ion
                 name="arrow-forward-outline"
-                className="shrink-0 mt-1 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                className="shrink-0 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
               />
             </Link>
           ))}
