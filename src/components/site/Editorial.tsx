@@ -49,17 +49,18 @@ export const PageHero = ({
       <div className="md:col-span-7 animate-fade-rise">
         {icon && (
           <div className="mb-6 inline-flex items-center gap-3">
-            <div className="h-12 w-12 bg-primary text-accent flex items-center justify-center ring-1 ring-accent/40">
-              <Ion name={icon} className="text-xl" />
+            <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-accent shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)] ring-1 ring-accent/50 rounded-sm overflow-hidden">
+              <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--accent)/0.35),transparent_60%)]" aria-hidden />
+              <span className="absolute inset-[3px] ring-1 ring-accent/25 rounded-[2px]" aria-hidden />
+              <Ion name={icon} className="relative text-[22px]" />
             </div>
-            <span className="h-px w-10 bg-accent" />
+            <span className="h-px w-12 bg-gradient-to-r from-accent to-transparent" />
           </div>
         )}
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="display-serif-feel text-primary text-5xl md:text-6xl lg:text-7xl mt-5">
           {title}
         </h1>
-        {intro && <p className="mt-6 text-ink-soft text-lg max-w-xl leading-relaxed">{intro}</p>}
         <div className="mt-7 gold-bar" />
       </div>
       {image && (
@@ -82,8 +83,9 @@ export const Prose = ({ children }: { children: ReactNode }) => (
 
 export const InfoCard = ({ icon, title, children }: { icon: string; title: string; children: ReactNode }) => (
   <article className="group bg-card border border-border p-7 hover:border-accent/60 transition-colors">
-    <div className="h-12 w-12 border border-accent/40 flex items-center justify-center text-accent">
-      <Ion name={icon} className="text-2xl" />
+    <div className="relative h-12 w-12 flex items-center justify-center text-accent bg-gradient-to-br from-accent/15 to-transparent ring-1 ring-accent/40 rounded-sm overflow-hidden transition-all duration-300 group-hover:from-accent group-hover:to-accent group-hover:text-accent-foreground group-hover:shadow-[0_10px_24px_-10px_hsl(var(--accent)/0.7)]">
+      <span className="absolute inset-[3px] ring-1 ring-accent/20 rounded-[2px]" aria-hidden />
+      <Ion name={icon} className="relative text-[22px]" />
     </div>
     <h3 className="mt-5 font-semibold text-primary text-lg tracking-tight">{title}</h3>
     <div className="mt-2 text-sm text-ink-soft leading-relaxed">{children}</div>
@@ -104,8 +106,9 @@ export const NumberedItem = ({
   <article className="group relative pl-14 pr-4 py-7 border-b border-border last:border-b-0">
     <div className="absolute left-0 top-7 font-display text-accent/70 text-sm tracking-widest">{index}</div>
     <div className="flex items-center gap-3">
-      <div className="h-10 w-10 border border-accent/40 flex items-center justify-center text-accent shrink-0">
-        <Ion name={icon} className="text-xl" />
+      <div className="relative h-11 w-11 flex items-center justify-center text-accent shrink-0 bg-gradient-to-br from-primary to-primary-glow ring-1 ring-accent/50 rounded-sm overflow-hidden shadow-[0_8px_20px_-10px_hsl(var(--primary)/0.6)]">
+        <span className="absolute inset-[3px] ring-1 ring-accent/25 rounded-[2px]" aria-hidden />
+        <Ion name={icon} className="relative text-[20px]" />
       </div>
       <h3 className="font-semibold text-primary text-xl tracking-tight">{title}</h3>
     </div>
