@@ -48,7 +48,7 @@ export const PopupAnnouncement = () => {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[100] flex items-center justify-center px-4 transition-all duration-500",
+        "fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 transition-all duration-500",
         open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
       )}
       role="dialog"
@@ -57,11 +57,11 @@ export const PopupAnnouncement = () => {
       <div className="absolute inset-0 bg-ink/70 backdrop-blur-sm" onClick={close} />
       <div
         className={cn(
-          "relative w-full max-w-lg bg-background shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.5)] rounded-sm overflow-hidden transition-all duration-500",
+          "relative w-full max-w-lg max-h-[95vh] sm:max-h-[90vh] flex flex-col bg-background shadow-[0_30px_80px_-20px_hsl(var(--primary)/0.5)] rounded-sm overflow-hidden transition-all duration-500",
           open ? "scale-100 translate-y-0" : "scale-95 translate-y-4",
         )}
       >
-        <div className="h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent" />
+        <div className="h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent shrink-0" />
         <button
           onClick={close}
           aria-label="Close announcement"
@@ -69,14 +69,15 @@ export const PopupAnnouncement = () => {
         >
           <Ion name="close-outline" className="text-xl" />
         </button>
+        <div className="flex-1 overflow-y-auto overscroll-contain">
         {popup.image_url && (
-          <div className="w-full bg-muted flex items-center justify-center max-h-[70vh] overflow-hidden">
+          <div className="w-full bg-muted flex items-center justify-center p-2 sm:p-3">
             <img
               loading="lazy"
               decoding="async"
               src={popup.image_url}
               alt={popup.title}
-              className="w-full h-auto max-h-[70vh] object-contain"
+              className="w-auto h-auto max-w-full max-h-[55vh] sm:max-h-[65vh] object-contain"
             />
           </div>
         )}
