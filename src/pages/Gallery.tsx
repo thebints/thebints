@@ -27,8 +27,16 @@ const Gallery = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await supabase.from("gallery_projects").select("*").eq("published", true).order("project_date", { ascending: false });
-      setProjects((data as ProjectRow[]) || []);
+      const { data } = await supabase
+        .from("gallery_projects")
+        .select("*, gallery_photos(count)")
+        .eq("published", true)
+        .order("project_date", { ascending: false });
+      // Hide projects without at least 1 photo
+      const filtered = ((data as any[]) || [])
+        .filter((p) => (p.gallery_photos?.[0]?.count ?? 0) >= 1)
+        .map(({ gallery_photos: _gp, ...rest }) => rest as ProjectRow);
+      setProjects(filtered);
       setLoading(false);
     })();
   }, []);
