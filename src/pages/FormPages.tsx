@@ -188,3 +188,34 @@ export const Apply = () => (
     }}
   />
 );
+
+export const Partner = () => (
+  <FormPage
+    applicationType="partner"
+    eyebrow="Get Involved"
+    title="Partner With Us"
+    intro="The Bints Foundation welcomes partnerships across grants, education, skills, women empowerment, dignity, mentorship, community outreach and social housing."
+    image={teamCelebration}
+    fields={[
+      { name: "name", label: "Contact full name" },
+      { name: "email", label: "Work email", type: "email" },
+      { name: "phone", label: "Phone" },
+      { name: "organization", label: "Organization / Company" },
+      { name: "role", label: "Your role / position" },
+      { name: "website", label: "Website (optional)", type: "url" },
+      { name: "country", label: "Country / City" },
+      { name: "partnership_type", label: "Type of partnership", placeholder: "Grant, sponsorship, programme, CSR, in-kind, MoU…", full: true },
+      { name: "note", label: "Tell us about your partnership goals", textarea: true },
+    ]}
+    submitLabel="Submit Partnership Enquiry"
+    successMsg="Thank you. Our partnerships team will be in touch shortly."
+    sidebar={{
+      title: "What partners receive",
+      cards: [
+        { icon: "documents-outline", title: "Co-designed proposals", body: "Programme designs tailored to your strategic goals and CSR priorities." },
+        { icon: "bar-chart-outline", title: "Transparent reporting", body: "Clear monitoring and evaluation frameworks with measurable outcomes." },
+        { icon: "megaphone-outline", title: "Visibility & storytelling", body: "Brand alignment, impact stories and recognition across our channels." },
+      ],
+    }}
+  />
+);
