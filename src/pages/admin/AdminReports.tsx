@@ -143,6 +143,10 @@ const AdminReports = () => {
           <input ref={fileRef} type="file" accept="application/pdf" onChange={(e) => setFile(e.target.files?.[0] || null)} className={inputCls} />
           {file && <p className="text-xs text-muted-foreground mt-1">{file.name} · {fmtSize(file.size)}</p>}
         </Field>
+        <Field label="Cover image (optional)" full>
+          <input ref={coverRef} type="file" accept="image/*" onChange={(e) => setCoverFile(e.target.files?.[0] || null)} className={inputCls} />
+          {coverFile && <p className="text-xs text-muted-foreground mt-1">{coverFile.name} · {fmtSize(coverFile.size)}</p>}
+        </Field>
         <Field label="Description" full>
           <textarea rows={4} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className={inputCls} />
         </Field>
@@ -162,9 +166,13 @@ const AdminReports = () => {
         {items.length === 0 && <p className="text-sm text-muted-foreground">None yet.</p>}
         {items.map((r) => (
           <div key={r.id} className="bg-card border border-border p-4 flex items-start gap-3">
-            <div className="h-12 w-10 bg-accent/10 text-accent flex items-center justify-center shrink-0">
-              <Ion name="document-text-outline" className="text-xl" />
-            </div>
+            {r.cover_image_url ? (
+              <img src={r.cover_image_url} alt="" className="h-16 w-16 object-cover shrink-0" />
+            ) : (
+              <div className="h-16 w-12 bg-accent/10 text-accent flex items-center justify-center shrink-0">
+                <Ion name="document-text-outline" className="text-xl" />
+              </div>
+            )}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-medium text-primary truncate">{r.title}</h3>
