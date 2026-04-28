@@ -7,6 +7,7 @@ import heroPortrait from "@/assets/hero-portrait.jpg";
 import girlEducation from "@/assets/girl-education.jpg";
 import womenEnterprise from "@/assets/women-enterprise.jpg";
 import mentorshipImg from "@/assets/mentorship.jpg";
+import volunteersImg from "@/assets/volunteers.jpg";
 import housingImg from "@/assets/housing.jpg";
 import welfareImg from "@/assets/welfare.jpg";
 import founderPortrait from "@/assets/founder-portrait.jpg";
@@ -401,7 +402,7 @@ const Index = () => (
           { src: womenIct, alt: "Young women learning ICT skills", label: "ICT" },
           { src: welfareImg, alt: "Welfare outreach in the community", label: "Welfare" },
           { src: leadershipImg, alt: "Mentor speaking to a circle of young women", label: "Leadership" },
-          { src: mentorshipImg, alt: "Diverse women volunteers", label: "Volunteers" },
+          { src: volunteersImg, alt: "The Bints Foundation volunteers in branded shirts during community outreach", label: "Volunteers" },
           { src: housingImg, alt: "Women reviewing a housing brochure", label: "Housing" },
           { src: womenSkills, alt: "Women learning bead-craft skills", label: "Community" },
         ].map((img) => (
