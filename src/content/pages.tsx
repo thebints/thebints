@@ -544,10 +544,10 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
       <>
         <div className="not-prose grid md:grid-cols-2 gap-6">
           {[
-            { t: "Foundation officially launched", d: "A new chapter for women & girls empowerment in Nigeria.", img: founderPortrait },
-            { t: "First Mentorship Circle convened", d: "Twenty mentors meet twenty mentees in our inaugural circle.", img: mentorshipImg },
-            { t: "Pilot Dignity Kit distribution", d: "Hundreds of girls receive their first Dignity Kits.", img: girlEducation },
-            { t: "Housing Initiative — partner roundtable", d: "Bringing developers and lenders into one room.", img: housingImg },
+            { t: "Foundation officially launched", d: "A new chapter for women & girls empowerment in Nigeria.", img: speakerPodium },
+            { t: "First Mentorship Circle convened", d: "Twenty mentors meet twenty mentees in our inaugural circle.", img: leadershipSkills },
+            { t: "Pilot Dignity Kit distribution", d: "Hundreds of girls receive their first Dignity Kits.", img: welfareDistribution },
+            { t: "Housing Initiative — partner roundtable", d: "Bringing developers and lenders into one room.", img: teamCelebration },
           ].map((n) => (
             <article key={n.t} className="border border-border bg-card group">
               <div className="aspect-[16/10] overflow-hidden">
@@ -571,7 +571,7 @@ export const PAGE_CONTENT: Record<string, PageContent> = {
     intro: "Moments of dignity, learning and impact from our programmes.",
     body: (
       <div className="not-prose grid grid-cols-2 md:grid-cols-3 gap-3">
-        {[girlEducation, womenEnterprise, mentorshipImg, housingImg, welfareImg, leadershipImg, founderPortrait, girlEducation, womenEnterprise].map((src, i) => (
+        {[welfareDistribution, leadershipSkills, teamCelebration, speakerPodium, artisanWomen, businessGrowth, girlEducation, womenEnterprise, mentorshipImg, housingImg, welfareImg, leadershipImg].map((src, i) => (
           <figure key={i} className={`overflow-hidden ${i % 5 === 0 ? "row-span-2" : ""}`}>
             <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
           </figure>
