@@ -2,9 +2,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, InfoCard, SectionHeader } from "@/components/site/Editorial";
 import { Ion } from "@/components/Ion";
 import { toast } from "sonner";
-import mentorshipImg from "@/assets/mentorship.jpg";
-import welfareImg from "@/assets/welfare.jpg";
-import leadershipImg from "@/assets/leadership.jpg";
+import teamCelebration from "@/assets/team-celebration.jpg";
+import leadershipSkills from "@/assets/leadership-skills.jpg";
+import welfareDistribution from "@/assets/welfare-distribution.jpg";
 
 interface FormPageProps {
   eyebrow: string;
@@ -71,7 +71,7 @@ export const Volunteer = () => (
     eyebrow="Get Involved"
     title="Volunteer"
     intro="Lend your time, skills and presence to programmes that change lives."
-    image={mentorshipImg}
+    image={teamCelebration}
     fields={[
       { name: "name", label: "Full name" },
       { name: "email", label: "Email", type: "email" },
@@ -99,7 +99,7 @@ export const Mentor = () => (
     eyebrow="Get Involved"
     title="Become a Mentor"
     intro="Share what you know with a woman or girl who needs your wisdom, your network and your time."
-    image={leadershipImg}
+    image={leadershipSkills}
     fields={[
       { name: "name", label: "Full name" },
       { name: "email", label: "Email", type: "email" },
@@ -127,7 +127,7 @@ export const Apply = () => (
     eyebrow="Get Involved"
     title="Apply for Support"
     intro="If you or a woman or girl you know would benefit from our programmes, please share a little about your situation."
-    image={welfareImg}
+    image={welfareDistribution}
     fields={[
       { name: "name", label: "Your full name" },
       { name: "email", label: "Email", type: "email" },
