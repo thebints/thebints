@@ -24,6 +24,9 @@ import AdminReports from "./pages/admin/AdminReports.tsx";
 import AdminGallery from "./pages/admin/AdminGallery.tsx";
 import Reports from "./pages/Reports.tsx";
 import Gallery from "./pages/Gallery.tsx";
+import News from "./pages/News.tsx";
+import NewsPost from "./pages/NewsPost.tsx";
+import AdminNews from "./pages/admin/AdminNews.tsx";
 
 const queryClient = new QueryClient();
 
@@ -74,7 +77,8 @@ const App = () => (
           <Route path="/get-involved/apply" element={<Apply />} />
 
           {/* Media & Resources */}
-          <Route path="/media/news" element={<DynamicPage />} />
+          <Route path="/media/news" element={<News />} />
+          <Route path="/media/news/:slug" element={<NewsPost />} />
           <Route path="/media/events" element={<Events />} />
           <Route path="/media/gallery" element={<Gallery />} />
           <Route path="/media/reports" element={<Reports />} />
@@ -88,6 +92,7 @@ const App = () => (
             <Route path="applications" element={<AdminApplications />} />
             <Route path="reports" element={<AdminReports />} />
             <Route path="gallery" element={<AdminGallery />} />
+            <Route path="news" element={<AdminNews />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
