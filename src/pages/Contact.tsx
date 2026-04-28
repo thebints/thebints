@@ -2,7 +2,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, InfoCard, SectionHeader } from "@/components/site/Editorial";
 import { Ion } from "@/components/Ion";
 import { toast } from "sonner";
-import donateHero from "@/assets/donate-hero.jpg";
+import contactHero from "@/assets/speaker-podium.jpg";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,8 +17,8 @@ const Contact = () => {
         eyebrow="Contact"
         title={<>Let's talk about<br />what's possible.</>}
         intro="Partnerships, media, programme enquiries, or simply to say hello — we read every message."
-        image={donateHero}
-        imageAlt="Community of women walking together"
+        image={contactHero}
+        imageAlt="Hajia Binta Ibrahim engaging an audience at a Bints Foundation event"
       />
 
       <section className="container py-20">
