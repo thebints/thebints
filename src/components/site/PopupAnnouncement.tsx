@@ -70,8 +70,14 @@ export const PopupAnnouncement = () => {
           <Ion name="close-outline" className="text-xl" />
         </button>
         {popup.image_url && (
-          <div className="aspect-[16/9] w-full overflow-hidden bg-muted">
-            <img loading="lazy" decoding="async" src={popup.image_url} alt={popup.title} className="h-full w-full object-cover" />
+          <div className="w-full bg-muted flex items-center justify-center max-h-[70vh] overflow-hidden">
+            <img
+              loading="lazy"
+              decoding="async"
+              src={popup.image_url}
+              alt={popup.title}
+              className="w-full h-auto max-h-[70vh] object-contain"
+            />
           </div>
         )}
         <div className="p-6 sm:p-8">
