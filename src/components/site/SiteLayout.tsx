@@ -174,12 +174,9 @@ const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: stri
               >
                 <Ion name={item.icon} />
               </div>
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0 flex-1 self-center">
                 <div className="text-[13px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
                   {item.label}
-                </div>
-                <div className="text-[11.5px] text-muted-foreground mt-0.5 leading-relaxed line-clamp-2">
-                  {item.blurb}
                 </div>
               </div>
               <Ion
