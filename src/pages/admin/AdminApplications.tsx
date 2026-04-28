@@ -7,7 +7,7 @@ import autoTable from "jspdf-autotable";
 
 interface Application {
   id: string;
-  application_type: "volunteer" | "mentor";
+  application_type: "volunteer" | "mentor" | "partner";
   full_name: string;
   email: string;
   phone: string | null;
@@ -20,7 +20,7 @@ interface Application {
 
 const AdminApplications = () => {
   const [items, setItems] = useState<Application[]>([]);
-  const [filter, setFilter] = useState<"all" | "volunteer" | "mentor">("all");
+  const [filter, setFilter] = useState<"all" | "volunteer" | "mentor" | "partner">("all");
   const [open, setOpen] = useState<Application | null>(null);
 
   const load = async () => {
@@ -80,7 +80,7 @@ const AdminApplications = () => {
         <div>
           <div className="eyebrow text-accent">Inbox</div>
           <h1 className="font-display text-3xl font-bold text-primary mt-1">Applications</h1>
-          <p className="text-sm text-muted-foreground mt-2">All Volunteer and Mentorship applications submitted from the website.</p>
+          <p className="text-sm text-muted-foreground mt-2">All Volunteer, Mentorship and Partnership submissions from the website.</p>
         </div>
         <button onClick={exportPdf} className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2.5 text-sm font-medium hover:opacity-90 transition">
           <Ion name="download-outline" /> Export to PDF
@@ -89,7 +89,7 @@ const AdminApplications = () => {
       <div className="gold-bar mt-4" />
 
       <div className="mt-6 inline-flex border border-border bg-card">
-        {(["all", "volunteer", "mentor"] as const).map((k) => (
+        {(["all", "volunteer", "mentor", "partner"] as const).map((k) => (
           <button
             key={k}
             onClick={() => setFilter(k)}
@@ -119,7 +119,7 @@ const AdminApplications = () => {
               <tr key={a.id} className="border-t border-border hover:bg-secondary/40">
                 <td className="px-4 py-3 text-muted-foreground">{new Date(a.created_at).toLocaleDateString()}</td>
                 <td className="px-4 py-3">
-                  <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 ${a.application_type === "mentor" ? "bg-accent/20 text-accent" : "bg-primary/10 text-primary"}`}>
+                  <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 ${a.application_type === "mentor" ? "bg-accent/20 text-accent" : a.application_type === "partner" ? "bg-emerald-500/15 text-emerald-700" : "bg-primary/10 text-primary"}`}>
                     {a.application_type}
                   </span>
                 </td>
