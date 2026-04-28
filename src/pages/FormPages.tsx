@@ -2,6 +2,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, InfoCard, SectionHeader } from "@/components/site/Editorial";
 import { Ion } from "@/components/Ion";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 import teamCelebration from "@/assets/team-celebration.jpg";
 import leadershipSkills from "@/assets/leadership-skills.jpg";
 import welfareDistribution from "@/assets/welfare-distribution.jpg";
