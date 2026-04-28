@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Eyebrow, SectionHeader, NumberedItem, CtaBand } from "@/components/site/Editorial";
+import { Reveal } from "@/components/site/Reveal";
 import { Ion } from "@/components/Ion";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import girlEducation from "@/assets/girl-education.jpg";
@@ -156,92 +157,91 @@ const Index = () => (
     {/* INTRO + BINTS */}
     <section className="relative bg-secondary/30 border-y border-border overflow-hidden">
       <div className="absolute inset-0 paper-grain opacity-60" aria-hidden />
-      <div className="absolute -top-32 -left-32 h-80 w-80 rounded-full bg-accent/10 blur-3xl" aria-hidden />
-      <div className="absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-primary/10 blur-3xl" aria-hidden />
+      <div className="absolute -top-32 -left-32 h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-accent/10 blur-3xl" aria-hidden />
+      <div className="absolute -bottom-32 -right-32 h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-primary/10 blur-3xl" aria-hidden />
 
-      <div className="container relative py-24 lg:py-32 grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+      <div className="container relative py-16 sm:py-20 lg:py-32 grid lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-20 items-start">
         {/* LEFT — Editorial intro */}
-        <div className="lg:col-span-5 lg:sticky lg:top-28">
+        <Reveal className="lg:col-span-5 lg:sticky lg:top-28">
           <Eyebrow>About the Foundation</Eyebrow>
-          <h2 className="display-serif-feel text-primary text-4xl md:text-5xl lg:text-[3.4rem] mt-5 leading-[1.05]">
+          <h2 className="display-serif-feel text-primary text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl lg:text-[3.4rem] lg:leading-[1.05] mt-4 sm:mt-5 break-words">
             Empowerment built on{" "}
             <span className="relative inline-block">
               <span className="relative z-10">dignity</span>
-              <span className="absolute bottom-1 left-0 right-0 h-3 bg-accent/30 -z-0" aria-hidden />
+              <span className="absolute bottom-0.5 sm:bottom-1 left-0 right-0 h-2 sm:h-3 bg-accent/30 -z-0" aria-hidden />
             </span>
             , accountability and lasting impact.
           </h2>
-          <div className="mt-7 gold-bar" />
-          <p className="mt-7 text-ink-soft leading-relaxed text-[15.5px]">
+          <div className="mt-6 sm:mt-7 gold-bar" />
+          <p className="mt-5 sm:mt-7 text-ink-soft leading-relaxed text-[14.5px] sm:text-[15.5px]">
             The Bints Foundation was established as a structured platform to bridge the gaps that leave many women and girls underserved. We move beyond short-term interventions to design programmes that build capacity, inspire confidence and create pathways for long-term transformation.
           </p>
 
           {/* Mini stats */}
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-3 sm:gap-4">
             {[
               { k: "5", l: "Core Values" },
               { k: "10+", l: "Programmes" },
               { k: "1", l: "Mission" },
             ].map((s) => (
-              <div key={s.l} className="border-l-2 border-accent pl-3">
-                <div className="font-display text-primary text-2xl font-bold">{s.k}</div>
-                <div className="text-[10.5px] uppercase tracking-[0.18em] text-ink-soft mt-1 leading-tight">{s.l}</div>
+              <div key={s.l} className="border-l-2 border-accent pl-2.5 sm:pl-3">
+                <div className="font-display text-primary text-xl sm:text-2xl font-bold">{s.k}</div>
+                <div className="text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.15em] sm:tracking-[0.18em] text-ink-soft mt-1 leading-tight">{s.l}</div>
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* RIGHT — Premium values card */}
-        <div className="lg:col-span-7">
+        <Reveal delay={120} className="lg:col-span-7">
           <div className="relative bg-card border border-border editorial-shadow overflow-hidden">
-            <div className="relative bg-gradient-to-br from-primary to-primary-glow text-primary-foreground px-8 py-7 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-primary to-primary-glow text-primary-foreground px-5 py-6 sm:px-8 sm:py-7 overflow-hidden">
               <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/20 blur-2xl" aria-hidden />
-              <div className="relative flex items-end justify-between gap-4 flex-wrap">
+              <div className="relative flex items-end justify-between gap-3 sm:gap-4 flex-wrap">
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">Our Core Values</div>
-                  <div className="font-display text-2xl md:text-3xl font-bold mt-2 tracking-tight">The BINTS Code</div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-accent font-semibold">Our Core Values</div>
+                  <div className="font-display text-xl sm:text-2xl md:text-3xl font-bold mt-2 tracking-tight">The BINTS Code</div>
                 </div>
-                <div className="font-display text-accent font-bold tracking-[0.45em] text-base md:text-lg">
+                <div className="font-display text-accent font-bold tracking-[0.35em] sm:tracking-[0.45em] text-sm sm:text-base md:text-lg">
                   B·I·N·T·S
                 </div>
               </div>
-              <div className="relative mt-5 h-px bg-gradient-to-r from-accent/70 via-accent/30 to-transparent" />
+              <div className="relative mt-4 sm:mt-5 h-px bg-gradient-to-r from-accent/70 via-accent/30 to-transparent" />
             </div>
 
             <div className="divide-y divide-border">
               {bints.map((v, i) => (
-                <div
-                  key={v.word}
-                  className="group relative grid grid-cols-12 gap-5 px-6 md:px-8 py-6 transition-all duration-300 hover:bg-secondary/40"
-                >
-                  <span className="absolute left-0 top-0 h-full w-[3px] bg-accent scale-y-0 origin-center transition-transform duration-500 group-hover:scale-y-100" />
+                <Reveal key={v.word} delay={i * 110} y={28}>
+                  <div className="group relative flex gap-4 sm:gap-5 px-5 py-5 sm:px-8 sm:py-6 transition-colors duration-300 hover:bg-secondary/40">
+                    <span className="absolute left-0 top-0 h-full w-[3px] bg-accent scale-y-0 origin-center transition-transform duration-500 group-hover:scale-y-100" />
 
-                  <div className="col-span-2 md:col-span-1 flex items-start">
-                    <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-accent/15 to-transparent ring-1 ring-accent/40 transition-all duration-300 group-hover:from-accent group-hover:to-accent group-hover:ring-accent group-hover:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]">
-                      <span className="font-display text-accent font-bold text-2xl transition-colors duration-300 group-hover:text-accent-foreground">
-                        {v.letter}
-                      </span>
+                    <div className="shrink-0">
+                      <div className="relative h-11 w-11 sm:h-12 sm:w-12 flex items-center justify-center bg-gradient-to-br from-accent/15 to-transparent ring-1 ring-accent/40 transition-all duration-300 group-hover:from-accent group-hover:to-accent group-hover:ring-accent group-hover:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]">
+                        <span className="font-display text-accent font-bold text-xl sm:text-2xl transition-colors duration-300 group-hover:text-accent-foreground">
+                          {v.letter}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h3 className="font-display font-bold text-primary text-base sm:text-lg tracking-tight transition-transform duration-300 group-hover:translate-x-1">
+                          {v.word}
+                        </h3>
+                        <span className="font-mono text-[10px] tracking-[0.2em] text-ink-soft/50 shrink-0 hidden xs:inline sm:inline">
+                          {String(i + 1).padStart(2, "0")} / 05
+                        </span>
+                      </div>
+                      <p className="mt-1.5 sm:mt-2 text-[13.5px] sm:text-[14px] text-ink-soft leading-relaxed">{v.body}</p>
                     </div>
                   </div>
-
-                  <div className="col-span-10 md:col-span-11 min-w-0">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-display font-bold text-primary text-lg tracking-tight transition-transform duration-300 group-hover:translate-x-1">
-                        {v.word}
-                      </h3>
-                      <span className="font-mono text-[10px] tracking-[0.2em] text-ink-soft/50 shrink-0">
-                        {String(i + 1).padStart(2, "0")} / 05
-                      </span>
-                    </div>
-                    <p className="mt-2 text-[14px] text-ink-soft leading-relaxed">{v.body}</p>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
 
             <div className="h-[3px] bg-gradient-to-r from-transparent via-accent to-transparent" />
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
 
