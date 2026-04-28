@@ -33,8 +33,10 @@ export const ContentPage = ({ eyebrow, title, intro, image, icon, body, cta }: C
         <aside className="lg:col-span-3">
           <div className="sticky top-28">
             {icon && (
-              <div className="h-14 w-14 border border-accent/50 flex items-center justify-center text-accent mb-5">
-                <Ion name={icon} className="text-2xl" />
+              <div className="relative h-14 w-14 flex items-center justify-center text-accent mb-5 bg-gradient-to-br from-primary to-primary-glow ring-1 ring-accent/50 rounded-sm overflow-hidden shadow-[0_12px_30px_-12px_hsl(var(--primary)/0.55)]">
+                <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--accent)/0.3),transparent_60%)]" aria-hidden />
+                <span className="absolute inset-[3px] ring-1 ring-accent/25 rounded-[2px]" aria-hidden />
+                <Ion name={icon} className="relative text-[24px]" />
               </div>
             )}
             <div className="eyebrow">{eyebrow}</div>
