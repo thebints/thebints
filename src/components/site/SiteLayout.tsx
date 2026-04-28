@@ -66,16 +66,17 @@ export const NAV: MenuItem[] = [
       { label: "Mentorship Circle", to: "/get-involved/mentor", icon: "person-add-outline", blurb: "Become a mentor in our circle." },
       { label: "Concerned Sisters Forum", to: "/get-involved/csf", icon: "flower-outline", blurb: "Our grassroots community network." },
       { label: "Apply for Support", to: "/get-involved/apply", icon: "document-text-outline", blurb: "If you or someone you know needs help." },
+      { label: "Contact", to: "/contact", icon: "mail-outline", blurb: "Apo-Gudu, Abuja — let's talk." },
     ],
   },
   {
-    label: "Media & Contact",
+    label: "Media & Resources",
     icon: "newspaper-outline",
     children: [
       { label: "News & Stories", to: "/media/news", icon: "reader-outline", blurb: "Updates from the field." },
+      { label: "Events", to: "/media/events", icon: "calendar-outline", blurb: "Upcoming gatherings, workshops & fundraisers." },
       { label: "Gallery", to: "/media/gallery", icon: "images-outline", blurb: "Moments from our programmes." },
       { label: "Impact Reports", to: "/media/reports", icon: "stats-chart-outline", blurb: "Transparent reporting and outcomes." },
-      { label: "Contact", to: "/contact", icon: "mail-outline", blurb: "Apo-Gudu, Abuja — let's talk." },
     ],
   },
 ];

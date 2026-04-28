@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { PopupAnnouncement } from "@/components/site/PopupAnnouncement";
 
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -11,7 +12,14 @@ import Donate from "./pages/Donate.tsx";
 import Founder from "./pages/Founder.tsx";
 import Contact from "./pages/Contact.tsx";
 import DynamicPage from "./pages/DynamicPage.tsx";
+import Events from "./pages/Events.tsx";
 import { Volunteer, Mentor, Apply } from "./pages/FormPages.tsx";
+import AdminAuth from "./pages/admin/AdminAuth.tsx";
+import AdminLayout from "./pages/admin/AdminLayout.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminPopups from "./pages/admin/AdminPopups.tsx";
+import AdminEvents from "./pages/admin/AdminEvents.tsx";
+import AdminApplications from "./pages/admin/AdminApplications.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +30,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PopupAnnouncement />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/donate" element={<Donate />} />
@@ -60,10 +69,20 @@ const App = () => (
           <Route path="/get-involved/mentor" element={<Mentor />} />
           <Route path="/get-involved/apply" element={<Apply />} />
 
-          {/* Media */}
+          {/* Media & Resources */}
           <Route path="/media/news" element={<DynamicPage />} />
+          <Route path="/media/events" element={<Events />} />
           <Route path="/media/gallery" element={<DynamicPage />} />
           <Route path="/media/reports" element={<DynamicPage />} />
+
+          {/* Admin */}
+          <Route path="/admin/auth" element={<AdminAuth />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="popups" element={<AdminPopups />} />
+            <Route path="events" element={<AdminEvents />} />
+            <Route path="applications" element={<AdminApplications />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
