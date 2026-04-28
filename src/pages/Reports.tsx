@@ -12,6 +12,7 @@ interface ReportRow {
   report_date: string;
   file_url: string;
   file_size_bytes: number | null;
+  cover_image_url: string | null;
 }
 
 const fmtSize = (b: number | null) => {
@@ -71,26 +72,38 @@ const Reports = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {visible.map((r, i) => (
                 <Reveal key={r.id} delay={i * 80}>
-                  <article className="bg-card border border-border p-6 h-full flex flex-col group hover:border-accent transition-colors">
-                    <div className="flex items-start justify-between">
-                      <div className="h-14 w-12 bg-accent/10 text-accent flex items-center justify-center">
-                        <Ion name="document-text-outline" className="text-2xl" />
+                  <article className="bg-card border border-border h-full flex flex-col group hover:border-accent transition-colors overflow-hidden">
+                    {r.cover_image_url ? (
+                      <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                        <img src={r.cover_image_url} alt={r.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        {r.category && (
+                          <span className="absolute top-3 left-3 text-[10px] uppercase tracking-wider bg-background/95 text-primary px-2 py-1">{r.category}</span>
+                        )}
                       </div>
-                      {r.category && <span className="text-[10px] uppercase tracking-wider bg-secondary text-ink-soft px-2 py-1">{r.category}</span>}
-                    </div>
-                    <h3 className="font-display text-xl font-bold text-primary mt-5 leading-tight">{r.title}</h3>
-                    {r.description && <p className="text-sm text-ink-soft mt-3 leading-relaxed line-clamp-3">{r.description}</p>}
-                    <div className="mt-5 pt-4 border-t border-border text-xs text-muted-foreground flex items-center justify-between">
-                      <span>{new Date(r.report_date).toLocaleDateString(undefined, { year: "numeric", month: "short" })}</span>
-                      {r.file_size_bytes && <span>PDF · {fmtSize(r.file_size_bytes)}</span>}
-                    </div>
-                    <div className="mt-4 flex gap-2">
-                      <a href={r.file_url} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium hover:bg-primary-glow transition">
-                        <Ion name="eye-outline" /> View
-                      </a>
-                      <a href={r.file_url} download className="inline-flex items-center justify-center gap-2 border border-border px-4 py-2.5 text-sm font-medium text-ink-soft hover:border-accent hover:text-accent transition">
-                        <Ion name="download-outline" />
-                      </a>
+                    ) : null}
+                    <div className="p-6 flex-1 flex flex-col">
+                      {!r.cover_image_url && (
+                        <div className="flex items-start justify-between">
+                          <div className="h-14 w-12 bg-accent/10 text-accent flex items-center justify-center">
+                            <Ion name="document-text-outline" className="text-2xl" />
+                          </div>
+                          {r.category && <span className="text-[10px] uppercase tracking-wider bg-secondary text-ink-soft px-2 py-1">{r.category}</span>}
+                        </div>
+                      )}
+                      <h3 className={`font-display text-xl font-bold text-primary leading-tight ${r.cover_image_url ? "" : "mt-5"}`}>{r.title}</h3>
+                      {r.description && <p className="text-sm text-ink-soft mt-3 leading-relaxed line-clamp-3">{r.description}</p>}
+                      <div className="mt-auto pt-5 border-t border-border text-xs text-muted-foreground flex items-center justify-between">
+                        <span>{new Date(r.report_date).toLocaleDateString(undefined, { year: "numeric", month: "short" })}</span>
+                        {r.file_size_bytes && <span>PDF · {fmtSize(r.file_size_bytes)}</span>}
+                      </div>
+                      <div className="mt-4 flex gap-2">
+                        <a href={r.file_url} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium hover:bg-primary-glow transition">
+                          <Ion name="eye-outline" /> View
+                        </a>
+                        <a href={r.file_url} download className="inline-flex items-center justify-center gap-2 border border-border px-4 py-2.5 text-sm font-medium text-ink-soft hover:border-accent hover:text-accent transition">
+                          <Ion name="download-outline" />
+                        </a>
+                      </div>
                     </div>
                   </article>
                 </Reveal>

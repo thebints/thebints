@@ -28,8 +28,20 @@ const AdminReports = () => {
   const [items, setItems] = useState<ReportRow[]>([]);
   const [form, setForm] = useState(empty);
   const [file, setFile] = useState<File | null>(null);
+  const [coverFile, setCoverFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const coverRef = useRef<HTMLInputElement>(null);
+
+  const uploadCover = async (f: File): Promise<string> => {
+    if (!f.type.startsWith("image/")) throw new Error("Cover must be an image");
+    if (f.size > 5 * 1024 * 1024) throw new Error("Cover image must be under 5 MB");
+    const ext = f.name.split(".").pop() || "jpg";
+    const path = `covers/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+    const { error } = await supabase.storage.from("impact-reports").upload(path, f, { contentType: f.type, cacheControl: "3600" });
+    if (error) throw error;
+    return supabase.storage.from("impact-reports").getPublicUrl(path).data.publicUrl;
+  };
 
   const load = async () => {
     const { data } = await supabase.from("impact_reports").select("*").order("report_date", { ascending: false });
@@ -54,6 +66,12 @@ const AdminReports = () => {
       if (upErr) throw upErr;
       const { data: pub } = supabase.storage.from("impact-reports").getPublicUrl(path);
 
+      let coverUrl: string | null = null;
+      if (coverFile) {
+        try { coverUrl = await uploadCover(coverFile); }
+        catch (e: any) { toast.error(e.message); }
+      }
+
       const { error } = await supabase.from("impact_reports").insert({
         title: form.title.trim(),
         description: form.description.trim() || null,
@@ -61,6 +79,7 @@ const AdminReports = () => {
         report_date: form.report_date,
         file_url: pub.publicUrl,
         file_size_bytes: file.size,
+        cover_image_url: coverUrl,
         published: form.published,
       });
       if (error) throw error;
@@ -68,7 +87,9 @@ const AdminReports = () => {
       toast.success("Report uploaded");
       setForm(empty);
       setFile(null);
+      setCoverFile(null);
       if (fileRef.current) fileRef.current.value = "";
+      if (coverRef.current) coverRef.current.value = "";
       load();
     } catch (err: any) {
       toast.error(err.message || "Upload failed");
@@ -80,14 +101,18 @@ const AdminReports = () => {
   const remove = async (r: ReportRow) => {
     if (!confirm(`Delete "${r.title}"?`)) return;
     // Best-effort storage cleanup
-    try {
-      const url = new URL(r.file_url);
-      const idx = url.pathname.indexOf("/impact-reports/");
-      if (idx >= 0) {
-        const path = decodeURIComponent(url.pathname.slice(idx + "/impact-reports/".length));
-        await supabase.storage.from("impact-reports").remove([path]);
-      }
-    } catch { /* ignore */ }
+    const cleanup = async (url: string) => {
+      try {
+        const u = new URL(url);
+        const idx = u.pathname.indexOf("/impact-reports/");
+        if (idx >= 0) {
+          const path = decodeURIComponent(u.pathname.slice(idx + "/impact-reports/".length));
+          await supabase.storage.from("impact-reports").remove([path]);
+        }
+      } catch { /* ignore */ }
+    };
+    await cleanup(r.file_url);
+    if (r.cover_image_url) await cleanup(r.cover_image_url);
     const { error } = await supabase.from("impact_reports").delete().eq("id", r.id);
     if (error) { toast.error(error.message); return; }
     toast.success("Deleted");
@@ -118,6 +143,10 @@ const AdminReports = () => {
           <input ref={fileRef} type="file" accept="application/pdf" onChange={(e) => setFile(e.target.files?.[0] || null)} className={inputCls} />
           {file && <p className="text-xs text-muted-foreground mt-1">{file.name} · {fmtSize(file.size)}</p>}
         </Field>
+        <Field label="Cover image (optional)" full>
+          <input ref={coverRef} type="file" accept="image/*" onChange={(e) => setCoverFile(e.target.files?.[0] || null)} className={inputCls} />
+          {coverFile && <p className="text-xs text-muted-foreground mt-1">{coverFile.name} · {fmtSize(coverFile.size)}</p>}
+        </Field>
         <Field label="Description" full>
           <textarea rows={4} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className={inputCls} />
         </Field>
@@ -137,9 +166,13 @@ const AdminReports = () => {
         {items.length === 0 && <p className="text-sm text-muted-foreground">None yet.</p>}
         {items.map((r) => (
           <div key={r.id} className="bg-card border border-border p-4 flex items-start gap-3">
-            <div className="h-12 w-10 bg-accent/10 text-accent flex items-center justify-center shrink-0">
-              <Ion name="document-text-outline" className="text-xl" />
-            </div>
+            {r.cover_image_url ? (
+              <img src={r.cover_image_url} alt="" className="h-16 w-16 object-cover shrink-0" />
+            ) : (
+              <div className="h-16 w-12 bg-accent/10 text-accent flex items-center justify-center shrink-0">
+                <Ion name="document-text-outline" className="text-xl" />
+              </div>
+            )}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-medium text-primary truncate">{r.title}</h3>
