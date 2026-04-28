@@ -102,6 +102,7 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
 
 export const Volunteer = () => (
   <FormPage
+    applicationType="volunteer"
     eyebrow="Get Involved"
     title="Volunteer"
     intro="Lend your time, skills and presence to programmes that change lives."
