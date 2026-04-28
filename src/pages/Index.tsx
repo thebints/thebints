@@ -144,6 +144,8 @@ const Index = () => (
               className="h-full w-full object-cover animate-slow-zoom"
               width={1080}
               height={1440}
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
           </div>

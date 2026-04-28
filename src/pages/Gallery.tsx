@@ -180,7 +180,7 @@ const Gallery = () => {
             </>
           )}
           <figure className="max-w-[95vw] max-h-[88vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <img src={photos[lightboxIndex].image_url} alt={photos[lightboxIndex].caption || ""} className="max-w-[95vw] max-h-[82vh] object-contain" />
+            <img loading="lazy" decoding="async" src={photos[lightboxIndex].image_url} alt={photos[lightboxIndex].caption || ""} className="max-w-[95vw] max-h-[82vh] object-contain" />
             {photos[lightboxIndex].caption && (
               <figcaption className="mt-4 text-white/80 text-sm text-center max-w-2xl">{photos[lightboxIndex].caption}</figcaption>
             )}
