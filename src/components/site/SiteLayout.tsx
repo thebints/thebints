@@ -148,14 +148,14 @@ const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: stri
         </div>
 
         {/* Items grid */}
-        <div className="col-span-8 grid grid-cols-2 gap-px bg-border/60">
+        <div className="col-span-8 grid grid-cols-2 auto-rows-fr gap-px bg-border/60">
           {items.map((item, i) => (
             <Link
               key={item.to}
               to={item.to}
               style={{ transitionDelay: `${60 + i * 35}ms` }}
               className={cn(
-                "group/item relative flex items-start gap-3 px-4 py-3.5 bg-background hover:bg-secondary/50",
+                "group/item relative flex items-center gap-3 px-5 py-4 min-h-[68px] bg-background hover:bg-secondary/50",
                 "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0",
                 "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
               )}
@@ -163,25 +163,27 @@ const MegaPanel = ({ items, parentLabel }: { items: SubItem[]; parentLabel: stri
               <span className="absolute left-0 top-0 h-full w-[2px] bg-accent scale-y-0 origin-top transition-transform duration-300 group-hover/item:scale-y-100" />
               <div
                 className={cn(
-                  "shrink-0 h-10 w-10 flex items-center justify-center rounded-sm",
-                  "bg-gradient-to-br from-accent/25 to-accent/5 ring-1 ring-accent/40 text-accent",
+                  "shrink-0 h-11 w-11 flex items-center justify-center rounded-md relative overflow-hidden",
+                  "bg-gradient-to-br from-primary to-primary-glow ring-1 ring-accent/50 text-accent",
+                  "shadow-[0_6px_16px_-8px_hsl(var(--primary)/0.55)]",
                   "transition-all duration-300",
                   "group-hover/item:from-accent group-hover/item:to-accent group-hover/item:text-accent-foreground",
-                  "group-hover/item:ring-accent group-hover/item:shadow-[0_8px_20px_-8px_hsl(var(--accent)/0.7)]",
+                  "group-hover/item:ring-accent group-hover/item:shadow-[0_10px_24px_-10px_hsl(var(--accent)/0.7)]",
                   "group-hover/item:-translate-y-0.5",
-                  "[&>ion-icon]:text-[18px] [&>ion-icon]:leading-none",
+                  "[&>ion-icon]:text-[20px] [&>ion-icon]:leading-none [&>ion-icon]:relative",
                 )}
               >
+                <span className="absolute inset-[3px] ring-1 ring-accent/20 rounded-[3px] pointer-events-none" aria-hidden />
                 <Ion name={item.icon} />
               </div>
-              <div className="min-w-0 flex-1 self-center">
-                <div className="text-[13px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
+              <div className="min-w-0 flex-1">
+                <div className="text-[13.5px] font-semibold text-primary tracking-tight leading-snug transition-transform duration-300 group-hover/item:translate-x-0.5">
                   {item.label}
                 </div>
               </div>
               <Ion
                 name="arrow-forward-outline"
-                className="shrink-0 mt-1 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
+                className="shrink-0 text-sm text-accent opacity-0 -translate-x-1 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0"
               />
             </Link>
           ))}
