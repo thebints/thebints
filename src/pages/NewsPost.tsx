@@ -118,7 +118,7 @@ const NewsPost = () => {
         {post.cover_image_url && (
           <div className="bg-background">
             <div className="container max-w-5xl -mt-8 md:-mt-12">
-              <img src={post.cover_image_url} alt={post.title} className="w-full aspect-[16/9] object-cover border border-border shadow-2xl" />
+              <img loading="lazy" decoding="async" src={post.cover_image_url} alt={post.title} className="w-full aspect-[16/9] object-cover border border-border shadow-2xl" />
             </div>
           </div>
         )}

@@ -71,7 +71,7 @@ export const PopupAnnouncement = () => {
         </button>
         {popup.image_url && (
           <div className="aspect-[16/9] w-full overflow-hidden bg-muted">
-            <img src={popup.image_url} alt={popup.title} className="h-full w-full object-cover" />
+            <img loading="lazy" decoding="async" src={popup.image_url} alt={popup.title} className="h-full w-full object-cover" />
           </div>
         )}
         <div className="p-6 sm:p-8">

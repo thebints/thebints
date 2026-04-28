@@ -83,7 +83,7 @@ const EventCard = ({ ev, past }: { ev: EventRow; past?: boolean }) => {
     <article className="group bg-card border border-border overflow-hidden flex flex-col hover:shadow-soft transition-shadow">
       <div className="aspect-[16/10] bg-muted overflow-hidden relative">
         {ev.image_url ? (
-          <img src={ev.image_url} alt={ev.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          <img loading="lazy" decoding="async" src={ev.image_url} alt={ev.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
         ) : (
           <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-accent">
             <Ion name="calendar-outline" className="text-5xl" />
