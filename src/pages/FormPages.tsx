@@ -17,13 +17,45 @@ interface FormPageProps {
   submitLabel: string;
   successMsg: string;
   sidebar: { title: string; cards: Array<{ icon: string; title: string; body: string }> };
+  applicationType?: "volunteer" | "mentor";
 }
 
-const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMsg, sidebar }: FormPageProps) => {
-  const handleSubmit = (e: React.FormEvent) => {
+const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMsg, sidebar, applicationType }: FormPageProps) => {
+  const [submitting, setSubmitting] = useState(false);
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    if (applicationType) {
+      setSubmitting(true);
+      const fd = new FormData(form);
+      const get = (k: string) => (fd.get(k) as string | null)?.toString().trim() || null;
+      const full_name = get("name") || "";
+      const email = get("email") || "";
+      if (!full_name || !email) { setSubmitting(false); toast.error("Name and email are required."); return; }
+      const message = [
+        get("skills") && `Skills: ${get("skills")}`,
+        get("availability") && `Availability: ${get("availability")}`,
+        get("profession") && `Profession: ${get("profession")}`,
+        get("years") && `Years: ${get("years")}`,
+        get("expertise") && `Expertise: ${get("expertise")}`,
+        get("preference") && `Preference: ${get("preference")}`,
+        get("note") && `Note: ${get("note")}`,
+      ].filter(Boolean).join("\n");
+      const { error } = await supabase.from("applications").insert({
+        application_type: applicationType,
+        full_name,
+        email,
+        phone: get("phone"),
+        location: get("city"),
+        area_of_interest: get("expertise") || get("skills"),
+        experience: get("years") || get("profession"),
+        message,
+      });
+      setSubmitting(false);
+      if (error) { toast.error("Could not submit. Please try again."); return; }
+    }
     toast.success(successMsg);
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
   return (
     <SiteLayout>
