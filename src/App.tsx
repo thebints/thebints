@@ -20,6 +20,10 @@ import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
 import AdminPopups from "./pages/admin/AdminPopups.tsx";
 import AdminEvents from "./pages/admin/AdminEvents.tsx";
 import AdminApplications from "./pages/admin/AdminApplications.tsx";
+import AdminReports from "./pages/admin/AdminReports.tsx";
+import AdminGallery from "./pages/admin/AdminGallery.tsx";
+import Reports from "./pages/Reports.tsx";
+import Gallery from "./pages/Gallery.tsx";
 
 const queryClient = new QueryClient();
 
@@ -72,8 +76,8 @@ const App = () => (
           {/* Media & Resources */}
           <Route path="/media/news" element={<DynamicPage />} />
           <Route path="/media/events" element={<Events />} />
-          <Route path="/media/gallery" element={<DynamicPage />} />
-          <Route path="/media/reports" element={<DynamicPage />} />
+          <Route path="/media/gallery" element={<Gallery />} />
+          <Route path="/media/reports" element={<Reports />} />
 
           {/* Admin */}
           <Route path="/admin/auth" element={<AdminAuth />} />
@@ -82,6 +86,8 @@ const App = () => (
             <Route path="popups" element={<AdminPopups />} />
             <Route path="events" element={<AdminEvents />} />
             <Route path="applications" element={<AdminApplications />} />
+            <Route path="reports" element={<AdminReports />} />
+            <Route path="gallery" element={<AdminGallery />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
