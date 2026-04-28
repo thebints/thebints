@@ -20,9 +20,6 @@ const Founder = () => (
           <h1 className="display-serif-feel text-primary text-4xl sm:text-5xl lg:text-6xl mt-5 leading-[1.05]">
             A letter from<br />Hajia Binta Ibrahim.
           </h1>
-          <p className="mt-6 text-ink-soft text-lg max-w-xl leading-relaxed">
-            The conviction that gave The Bints Foundation its name and shape.
-          </p>
           <div className="mt-7 gold-bar" />
           <div className="mt-6 text-xs uppercase tracking-widest text-accent">FCAI · ARPA · Founder</div>
         </div>
