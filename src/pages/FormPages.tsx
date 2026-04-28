@@ -131,6 +131,7 @@ export const Volunteer = () => (
 
 export const Mentor = () => (
   <FormPage
+    applicationType="mentor"
     eyebrow="Get Involved"
     title="Become a Mentor"
     intro="Share what you know with a woman or girl who needs your wisdom, your network and your time."
