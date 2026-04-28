@@ -17,7 +17,7 @@ interface FormPageProps {
   submitLabel: string;
   successMsg: string;
   sidebar: { title: string; cards: Array<{ icon: string; title: string; body: string }> };
-  applicationType?: "volunteer" | "mentor";
+  applicationType?: "volunteer" | "mentor" | "partner";
 }
 
 const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMsg, sidebar, applicationType }: FormPageProps) => {
@@ -39,6 +39,10 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
         get("years") && `Years: ${get("years")}`,
         get("expertise") && `Expertise: ${get("expertise")}`,
         get("preference") && `Preference: ${get("preference")}`,
+        get("organization") && `Organization: ${get("organization")}`,
+        get("role") && `Role: ${get("role")}`,
+        get("website") && `Website: ${get("website")}`,
+        get("partnership_type") && `Partnership Type: ${get("partnership_type")}`,
         get("note") && `Note: ${get("note")}`,
       ].filter(Boolean).join("\n");
       const { error } = await supabase.from("applications").insert({
@@ -46,9 +50,9 @@ const FormPage = ({ eyebrow, title, intro, image, fields, submitLabel, successMs
         full_name,
         email,
         phone: get("phone"),
-        location: get("city"),
-        area_of_interest: get("expertise") || get("skills"),
-        experience: get("years") || get("profession"),
+        location: get("city") || get("country"),
+        area_of_interest: get("expertise") || get("skills") || get("partnership_type"),
+        experience: get("years") || get("profession") || get("organization"),
         message,
       });
       setSubmitting(false);
