@@ -421,9 +421,8 @@ export const SiteFooter = () => (
       </div>
 
       <div className="gold-rule mt-12" />
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 text-xs text-primary-foreground/60">
+      <div className="flex justify-center mt-6 text-xs text-primary-foreground/60">
         <p>© {new Date().getFullYear()} The Bints Foundation. All rights reserved.</p>
-        <p className="tracking-[0.3em] uppercase">Benevolence · Integrity · Nurture · Transformation · Sustainability</p>
       </div>
     </div>
   </footer>
