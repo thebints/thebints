@@ -368,10 +368,10 @@ const Index = () => (
             </Link>
           </div>
           <div className="lg:col-span-7">
-            <ul className="grid sm:grid-cols-2 gap-px bg-primary-foreground/10">
+            <ul className="grid sm:grid-cols-2 border-t border-l border-primary-foreground/10">
               {programmes.map((p, i) => (
-                <li key={p.name}>
-                  <Link to={p.to} className="group flex items-center gap-4 bg-primary px-5 py-5 hover:bg-primary-glow transition-colors">
+                <li key={p.name} className="border-b border-r border-primary-foreground/10">
+                  <Link to={p.to} className="group h-full flex items-center gap-4 bg-primary px-5 py-5 hover:bg-primary-glow transition-colors">
                     <span className="font-display text-accent/70 text-xs tracking-widest w-8">{String(i + 1).padStart(2, "0")}</span>
                     <Ion name={p.icon} className="text-accent text-xl shrink-0" />
                     <span className="text-sm font-medium tracking-tight flex-1">{p.name}</span>
