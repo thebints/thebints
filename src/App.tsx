@@ -20,6 +20,7 @@ const Events = lazy(() => import("./pages/Events.tsx"));
 const Volunteer = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Volunteer })));
 const Mentor = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Mentor })));
 const Apply = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Apply })));
+const Partner = lazy(() => import("./pages/FormPages.tsx").then(m => ({ default: m.Partner })));
 const Reports = lazy(() => import("./pages/Reports.tsx"));
 const Gallery = lazy(() => import("./pages/Gallery.tsx"));
 const News = lazy(() => import("./pages/News.tsx"));
@@ -85,7 +86,7 @@ const App = () => (
             <Route path="/programmes/housing-initiative" element={<DynamicPage />} />
 
             {/* Get Involved */}
-            <Route path="/get-involved/partner" element={<DynamicPage />} />
+            <Route path="/get-involved/partner" element={<Partner />} />
             <Route path="/get-involved/csf" element={<DynamicPage />} />
             <Route path="/get-involved/volunteer" element={<Volunteer />} />
             <Route path="/get-involved/mentor" element={<Mentor />} />
