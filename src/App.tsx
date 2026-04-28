@@ -30,6 +30,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PopupAnnouncement />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/donate" element={<Donate />} />
@@ -68,10 +69,20 @@ const App = () => (
           <Route path="/get-involved/mentor" element={<Mentor />} />
           <Route path="/get-involved/apply" element={<Apply />} />
 
-          {/* Media */}
+          {/* Media & Resources */}
           <Route path="/media/news" element={<DynamicPage />} />
+          <Route path="/media/events" element={<Events />} />
           <Route path="/media/gallery" element={<DynamicPage />} />
           <Route path="/media/reports" element={<DynamicPage />} />
+
+          {/* Admin */}
+          <Route path="/admin/auth" element={<AdminAuth />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="popups" element={<AdminPopups />} />
+            <Route path="events" element={<AdminEvents />} />
+            <Route path="applications" element={<AdminApplications />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
